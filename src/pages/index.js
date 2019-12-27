@@ -1,11 +1,11 @@
 import React from "react"
 
-import Layout from "../components/layout/Layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import Landing from '../components/sections/Landing'
-import About from '../components/sections/About'
-import Projects from '../components/sections/Projects'
-import Technologies from '../components/sections/Technologies'
+import Landing from '../components/sections/landing'
+import About from '../components/sections/about'
+import Projects from '../components/sections/projects'
+import Technologies from '../components/sections/technologies'
 
 const IndexPage = () => (
   <Layout>

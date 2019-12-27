@@ -3,11 +3,12 @@ import { Link } from 'gatsby'
 import PropTypes from "prop-types"
 import styled, { ThemeProvider } from 'styled-components'
 
-import Logo from '../logo'
-import Toggle from '../toggle'
 import { lightTheme, darkTheme } from './theme'
 import { GlobalStyle } from './globalStyles'
 import { useDarkMode } from '../useDarkMode'
+import Logo from '../logo'
+import Toggle from '../toggle'
+import Footer from './footer'
 
 const StyledPage = styled.div`
   max-width: 1000px;
@@ -55,9 +56,7 @@ const Layout = ({ children }) => {
       </Header>
       <StyledPage>
         <main>{children}</main>
-        <footer>
-          <h3>© {new Date().getFullYear()}, Adin Jesuha</h3>
-        </footer>
+        <Footer />
       </StyledPage>
     </ThemeProvider>
   )
