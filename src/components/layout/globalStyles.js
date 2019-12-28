@@ -47,8 +47,14 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     color: ${({theme}) => theme.title} 
   }
-  h2{
+  h1{
     font-size: 3.2rem;
+  }
+  h2{
+    font-size: 2.8rem;
+  }
+  h3{
+    font-size: 1.6rem;
   }
   a{
     text-decoration: none;
@@ -84,15 +90,6 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     left: -9999em;
   }
-  input[type='radio'] + label{
-    background: transparent;
-    color: var(--brand);
-  }
-  input[type="radio"]:checked + label{
-    background: var(--brand);
-    color: var(--white);
-  }
-
   .invert-filter{
     filter: ${({theme}) => theme.filter};
   }
@@ -104,8 +101,14 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--white);
   }
   @media ${device.tablet}{
+    h1{
+      font-size: 6.2rem;
+    }
     h2{
       font-size: 4.2rem;
+    }
+    h3{
+      font-size: 2rem;
     }
   }
 `
