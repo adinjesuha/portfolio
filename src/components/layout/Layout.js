@@ -22,7 +22,9 @@ const Header = styled.header`
   align-items: center;
   position: fixed;
   width: 100%;
-  padding: 3rem 2rem 0;
+  padding: 1.5rem 2rem;
+  background: black;
+  z-index: 100;
   .right-nav{
     display: flex;
     align-items: center;
@@ -50,7 +52,7 @@ const Layout = ({ children }) => {
       <Header>
         <Logo fill={themeMode.logo}/>
         <div className="right-nav">
-          <BtnLink>Contáctame</BtnLink>
+          <BtnLink to="/">Contáctame</BtnLink>
           <Toggle isDark={theme === 'dark'} toggle={toggleTheme}/>
         </div>
       </Header>

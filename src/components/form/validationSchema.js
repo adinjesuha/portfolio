@@ -1,11 +1,11 @@
 import * as Yup from 'yup';
 
-export const ContactSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Correo invalido.')
-    .required('Correo electrónico requerido.'),
+export const ContactSchema = Yup.object({
   name: Yup.string()
-    .required('Nombre requerido.')
-    .min(3, 'Muy corto.')
-    .max(20, 'Muy largo.'),
-});
+    .min(3, 'Debe contener tres caracteres o más')
+    .max(30, 'Debe contener 30 caracteres o menos')
+    .required('Nombre requerido'),
+  email: Yup.string()
+    .email('Dirección de correo no valida')
+    .required('Email requerido'),
+})

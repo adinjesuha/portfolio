@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {device} from '../../utils/brakpoints'
 import Section from '../section'
 
 const MainHeading = styled.h1`
