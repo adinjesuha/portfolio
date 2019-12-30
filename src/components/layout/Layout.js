@@ -11,7 +11,8 @@ import Toggle from '../toggle'
 import Footer from './footer'
 
 const StyledPage = styled.div`
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
 `
@@ -23,7 +24,6 @@ const Header = styled.header`
   position: fixed;
   width: 100%;
   padding: 1.5rem 2rem;
-  background: black;
   z-index: 100;
   .right-nav{
     display: flex;
@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
-      <Header>
+      <Header className="navbar-bg">
         <Logo fill={themeMode.logo}/>
         <div className="right-nav">
           <BtnLink to="/">Contáctame</BtnLink>

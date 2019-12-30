@@ -1,18 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import Reveal from 'react-reveal/Reveal';
+import { device } from '../utils/brakpoints'
 
 const SectionContainer = styled.div`
-  min-height: 100vh;
-  min-width: 320px;
   max-width: 1366px;
   display: flex;
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
   justify-content: center;
-  padding: 5em 1em;
+  padding-bottom: 8rem;
   scroll-behavior: smooth;
+  &:first-child{
+    min-height: 100vh;
+  }
+  @media ${device.tablet}{
+    padding-bottom: 15rem;
+    &:first-child{
+      padding-top: 10rem;
+    }
+  }
 `;
 
 const Heading = styled.h2`

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import styled from 'styled-components'
-import * as Yup from 'yup';
 
 import { device } from '../../utils/brakpoints'
 import { ContactSchema } from './validationSchema'

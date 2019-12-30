@@ -45,7 +45,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3, h4, h5, h6{
     font-weight: 500;
-    color: ${({theme}) => theme.title} 
+    color: ${({theme}) => theme.title};
+    margin: 0;
+    margin-bottom: 2rem;
   }
   h1{
     font-size: 3.2rem;
@@ -56,7 +58,12 @@ export const GlobalStyle = createGlobalStyle`
   h3{
     font-size: 1.6rem;
   }
+  p{
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
   a{
+    color: ${({theme}) => theme.text};
     text-decoration: none;
   }
   input,
@@ -77,7 +84,8 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   button,
-  input[type='submit'] {
+  input[type='submit'],
+  .btn{
     font-size: 1.8rem;
     color: var(--white);
     cursor: pointer;
@@ -93,8 +101,17 @@ export const GlobalStyle = createGlobalStyle`
   .invert-filter{
     filter: ${({theme}) => theme.filter};
   }
+  .theme-border{
+    border-top: 1px solid ${({theme}) => theme.borderColor};
+  }
+  .brand-color{
+    color: var(--brand);
+  }
   .theme-bg{
     background: ${({theme}) => theme.background}
+  }
+  .navbar-bg{
+    background-color: ${({theme}) => theme.navbarBackground}
   }
   .btn-primary{
     background-color: var(--brand);
@@ -102,7 +119,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   @media ${device.tablet}{
     h1{
-      font-size: 6.2rem;
+      font-size: 5.2rem;
     }
     h2{
       font-size: 4.2rem;

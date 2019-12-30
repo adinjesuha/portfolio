@@ -4,6 +4,12 @@ import styled from 'styled-components'
 import Section from '../section'
 import Image from '../image'
 
+const Content = styled.div`
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+`
+
 const ImageBlock = styled.div`
   display: flex;
   align-items: center;
@@ -41,16 +47,18 @@ const ImageBlock = styled.div`
 const Technologies = () => {
   return (
     <Section.Container>
-      <Section.Header name="Stack de Tecnologías de desarrollo actual" align="center"/>
-      <ImageBlock>
-        <Image imgName="react.png" className="invert-filter"/>
-        <Image imgName="gatsby.png" className="invert-filter"/>
-        <Image imgName="nextjs.png" className="invert-filter"/>
-        <Image imgName="graphql.png" className="invert-filter"/>
-        <Image imgName="contentful.png" className="invert-filter"/>
-        <Image imgName="firebase.png" className="invert-filter"/>
-        <Image imgName="netlify.png" className="invert-filter"/>
-      </ImageBlock>
+      <Content>
+        <Section.Header name="Stack de Tecnologías de desarrollo actual" align="center"/>
+        <ImageBlock>
+          <Image imgName="react.png" className="invert-filter"/>
+          <Image imgName="gatsby.png" className="invert-filter"/>
+          <Image imgName="nextjs.png" className="invert-filter"/>
+          <Image imgName="graphql.png" className="invert-filter"/>
+          <Image imgName="contentful.png" className="invert-filter"/>
+          <Image imgName="firebase.png" className="invert-filter"/>
+          <Image imgName="netlify.png" className="invert-filter"/>
+        </ImageBlock>
+      </Content>
     </Section.Container>
   )
 }

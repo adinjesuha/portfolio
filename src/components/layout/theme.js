@@ -1,31 +1,40 @@
-import '../../styles/base.css'
+const dark700 = '#15181E';
+const dark500 = '#212429';
+const dark300 = '#35383D';
+
+const grey100 = '#BBBBBB';
+
+const light500 = '#F7FAFD';
+const white = '#ffffff';
 
 export const lightTheme = {
-  body: 'var(--white)',
-  title: 'var(--dark-700)',
-  text: 'var(--dark-700)',
-  toggleBorder: '#FFF',
-  gradient: 'linear-gradient(#39598A, #79D7ED)',
-  logo: 'var(--dark-700)',
+  body: white,
+  title: dark700,
+  text: dark700,
+  toggleBorder: white,
+  logo: dark700,
   filter: 'invert(0)',
-  background: 'var(--light-500)',
+  background: light500,
+  navbarBackground: white,
+  borderColor: light500,
   form: {
-    background: 'var(--white)',
-    text: 'var(--grey-100)',
+    background: white,
+    text: grey100,
   },
 }
 
 export const darkTheme = {
-  body: 'var(--dark-700)',
-  title: 'var(--white)',
-  text: 'var(--light-500)',
+  body: dark700,
+  title: white,
+  text: light500,
   toggleBorder: '#6B8096',
-  gradient: 'linear-gradient(#091236, #1E215D)',
-  logo: 'var(--white)',
+  logo: white,
   filter: 'invert(1)',
-  background: 'var(--dark-500)',
+  background: dark500,
+  navbarBackground: dark700,
+  borderColor: dark300,
   form: {
-    background: 'var(--grey-700)',
-    text: 'var(--grey-300)',
+    background: dark700,
+    text: dark300,
   },
 }
