@@ -40,8 +40,8 @@ export const ContentCard = styled.div`
   justify-content: center;
   flex: 1 1 auto;
   text-align: center;
-  max-width: 560px;
-  padding: 0 40px;
+  max-width: 100%;
+  padding: 0;
   margin:0 auto;
   .content-head{
     font-weight: 400;
@@ -82,5 +82,13 @@ export const ContentCard = styled.div`
         right: 0;
       }
     }
+  }
+  @media ${device.tablet}{
+    max-width: 560px;
+    padding: 0 20px;
+  }
+  @media ${device.laptop}{
+    max-width: 560px;
+    padding: 0 40px;
   }
 `
