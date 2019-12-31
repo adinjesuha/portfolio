@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Reveal from 'react-reveal/Reveal';
 import { device } from '../utils/brakpoints'
 
 const SectionContainer = styled.div`
@@ -13,12 +12,13 @@ const SectionContainer = styled.div`
   padding-bottom: 8rem;
   scroll-behavior: smooth;
   &:first-child{
-    min-height: 100vh;
+    padding-top: 25rem;
+    padding-bottom: 20rem;
   }
   @media ${device.tablet}{
     padding-bottom: 15rem;
     &:first-child{
-      padding-top: 10rem;
+      padding-top: 15rem;
     }
   }
 `;
@@ -29,11 +29,7 @@ const Heading = styled.h2`
 
 const Container = ({ children }) => <SectionContainer>{children}</SectionContainer>;
 
-const Header = ({ name, align }) => (
-  <Reveal effect="fadeInUp">
-    <Heading align={align}>{name}</Heading>
-  </Reveal>
-);
+const Header = ({ name, align }) => <Heading align={align}>{name}</Heading>;
 
 export default {
   Container,

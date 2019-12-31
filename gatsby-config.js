@@ -1,16 +1,26 @@
 module.exports = {
   siteMetadata: {
     title: `Adin Jesuha Portafolio`,
-    description: `Portfolio`,
+    description: `Portafolio`,
     author: `@adinjesuha`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        once: true, 
+        selector: '[data-sal]',
+        animateClassName: 'sal-animate', 
+        disabledClassName: 'sal-disabled', 
+        rootMargin: '0% 50%' 
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `logos`,
-        path: `${__dirname}/src/images/logos`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -24,7 +34,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

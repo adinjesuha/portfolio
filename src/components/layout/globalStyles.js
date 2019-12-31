@@ -34,13 +34,13 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     font-weight: 300;
-    font-size: 1.6rem;
+    font-size: 2rem;
     line-height: 1.2;
     letter-spacing: 0.02em;
     padding: 0;
     margin: 0;
     @media ${device.tablet}{
-      font-size: 1.8rem;
+      font-size: 2.2rem;
     }
   }
   h1, h2, h3, h4, h5, h6{
