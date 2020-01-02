@@ -3,21 +3,29 @@ import React from 'react'
 import { Card, ImageCard, ContentCard  } from './styles'
 import Image from '../image'
 
-const ProjectCard = ({ title, imageName, children, order }) => {
+const ProjectCard = ({ 
+  title, 
+  image, 
+  inverted, 
+  content, 
+  descriptionLink,
+  href,
+  tag,
+  wip
+}) => {
   return (
     <Card>
-      <ImageCard order={order}>
-        <div>
-          <Image imgName={imageName}/>
-        </div>
+      <ImageCard order={inverted && 2}>
+        { wip && <div className="csw">Coming soon!</div> }
+        <Image imgName={image}/>
       </ImageCard>
       <ContentCard>
-        <h2 className="content-head">{title}</h2>
+        <h3 className="content-head">{title}</h3>
         <div className="content-body">
-          {children}
+          <p>{content}</p>
         </div>
         <div className="content-footer">
-          <span>Visitar el sitio web <a href="http://agrobiotek.com" target="_blank" rel="noopener noreferrer">agrobiotek.com</a></span>
+          <span>{descriptionLink} <a href={href} target="_blank" rel="noopener noreferrer">{tag}</a></span>
         </div> 
       </ContentCard>
     </Card>

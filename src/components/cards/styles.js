@@ -19,11 +19,23 @@ export const ImageCard = styled.div`
   align-items: center;
   height: 560px;
   margin-bottom: 3rem;
+  position: relative;
   div{
-    background: #000;
     width: 100%;
     height: 100%;
     max-width: 480px;
+  }
+  .csw{
+    height: 30px;
+    top: 0;
+    border-radius: 20px;
+    bottom: 20px;
+    left: 20px;
+    background: #fff;
+    color: #042825;
+    padding: 12px 22px;
+    position: absolute;
+    z-index: 1;
   }
   @media ${device.tablet}{
     order: ${({order}) => order || 'initial'};
@@ -44,12 +56,14 @@ export const ContentCard = styled.div`
   padding: 0;
   margin:0 auto;
   .content-head{
-    font-weight: 400;
+    font-weight: 300;
   }
   .content-body{
     p{
       margin: 0;
       margin-bottom: 2rem;
+      line-height: 1.4;
+      color: ${({theme}) => theme.card.bodyText};
     }
     strong{
       font-weight: 500;
@@ -57,8 +71,8 @@ export const ContentCard = styled.div`
   }
   .content-footer{
     span, a{
-      color: var(--grey-500);
       font-size: 1.4rem;
+      color: ${({theme}) => theme.card.footerText};
     }
     a{
       position: relative;
@@ -71,11 +85,11 @@ export const ContentCard = styled.div`
         height: 1px;
       }
       &:before{
-        background-color: rgba(4,40,37,.2);
+        background-color: ${({theme}) => theme.card.underline};
       }
       &:after{
         right: 100%;
-        background-color:#042825;
+        background-color: ${({theme}) => theme.card.underlinAfter};
         transition: all .4s cubic-bezier(.215,.61,.355,1);
       }
       &:hover::after{

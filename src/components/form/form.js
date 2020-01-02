@@ -10,7 +10,7 @@ import { Error } from './error'
 
 
 const FormWrapper = styled.div`
-  border-radius: 6px;
+  background: ${({theme}) => theme.background};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +65,7 @@ const SuccessMessage = styled.div`
 
 const ContactForm = () => {
   return (
-    <FormWrapper className="theme-bg">
+    <FormWrapper>
       <div className="heading">
         <h3>Tienes algún proyecto en mente?</h3>
         <h2>Agenda una reunión</h2>

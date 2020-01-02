@@ -56,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 2.8rem;
   }
   h3{
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   p{
     line-height: 1.5;
@@ -98,20 +98,8 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     left: -9999em;
   }
-  .invert-filter{
-    filter: ${({theme}) => theme.filter};
-  }
-  .theme-border{
-    border-top: 1px solid ${({theme}) => theme.borderColor};
-  }
   .brand-color{
     color: var(--brand);
-  }
-  .theme-bg{
-    background: ${({theme}) => theme.background}
-  }
-  .navbar-bg{
-    background-color: ${({theme}) => theme.navbarBackground}
   }
   .btn-primary{
     background-color: var(--brand);
@@ -119,13 +107,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   @media ${device.tablet}{
     h1{
-      font-size: 5.2rem;
+      font-size: 6.2rem;
     }
     h2{
-      font-size: 4.2rem;
+      font-size: 5.2rem;
     }
     h3{
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 `

@@ -20,6 +20,7 @@ const ImageBlock = styled.div`
     margin: 0 -.1rem 1.55rem;
     opacity: .3;
     transform: scale(.75);
+    filter: ${({theme}) => theme.filter};
     &:nth-child(1){
       max-width: 60px;
     }
@@ -44,19 +45,34 @@ const ImageBlock = styled.div`
   }
 `
 
+const Heading = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  * {
+    font-weight: 400;
+    &:first-child{
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+  }
+`
+
 const Technologies = () => {
   return (
-    <Section.Container>
+    <Section.Container id="tech">
       <Content>
-        <Section.Header name="Stack de Tecnologías de desarrollo actual" align="center"/>
+        <Heading>
+          <h5>Tecnologías que utilizo</h5>
+          <h3>Stack actual de desarrollo</h3>
+        </Heading>
         <ImageBlock>
-          <Image imgName="react.png" className="invert-filter"/>
-          <Image imgName="gatsby.png" className="invert-filter"/>
-          <Image imgName="nextjs.png" className="invert-filter"/>
-          <Image imgName="graphql.png" className="invert-filter"/>
-          <Image imgName="contentful.png" className="invert-filter"/>
-          <Image imgName="firebase.png" className="invert-filter"/>
-          <Image imgName="netlify.png" className="invert-filter"/>
+          <Image imgName="react.png"/>
+          <Image imgName="gatsby.png"/>
+          <Image imgName="nextjs.png"/>
+          <Image imgName="graphql.png"/>
+          <Image imgName="contentful.png"/>
+          <Image imgName="firebase.png"/>
+          <Image imgName="netlify.png"/>
         </ImageBlock>
       </Content>
     </Section.Container>
