@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
 import Headroom from 'react-headroom'
 import styled from 'styled-components'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
@@ -47,26 +46,6 @@ const StyledAnchorLink = styled(AnchorLink)`
   }
 `
 
-const NavLink = styled(Link)`
-  position: relative;
-  &:after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    right: 100%;
-    background-color:${({isdark}) => isdark ? 'var(--white)' : 'var(--dark-700)'};
-    transition: all .4s cubic-bezier(.215,.61,.355,1);
-  }
-  &:hover::after{
-    right: 0;
-  }
-  &.active::after{
-    right: 0;
-  }
-`
-
 const ResponsiveMenu = styled.div`
   background: ${({theme}) => theme.body};
   padding-top: 10px;
@@ -92,13 +71,14 @@ const ResponsiveMenu = styled.div`
     transition-delay: 0;
   }
   @media ${device.tablet}{
+    background: transparent;
     position: initial;
     flex-direction: initial;
     transform: translateX(0%);
     height: auto;
     width: auto;
     padding-top: 0;
-    transition: none;
+    transition: none !important;
     > * {
       opacity: 1;
       font-size: 2.2rem;
@@ -110,7 +90,7 @@ const ResponsiveMenu = styled.div`
 
 
 
-const Header = ({fill, isDark, toggle}) => {
+const Header = ({isDark, toggle}) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   useEffect(() => {
@@ -123,18 +103,12 @@ const Header = ({fill, isDark, toggle}) => {
     <>
       <HeaderContainer>
         <Navbar>
-          <Logo fill={fill}/>
+          <Logo />
           <nav className="right-nav">
             <ResponsiveMenu showMenu={menuOpened}>
               <StyledAnchorLink offset='100' href="#about">Sobre mí</StyledAnchorLink>
               <StyledAnchorLink offset='100' href="#works">Trabajos</StyledAnchorLink>
-              <NavLink 
-                to="/contact"
-                isdark={isDark}
-                activeClassName="active"
-              >
-                Contáctame
-              </NavLink>
+              <StyledAnchorLink offset='100' href="#contact">Contáctame</StyledAnchorLink>
             </ResponsiveMenu>
             <Toggle 
               isDark={isDark} 

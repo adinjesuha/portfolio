@@ -8,4 +8,7 @@ export const ContactSchema = Yup.object({
   email: Yup.string()
     .email('Dirección de correo no valida')
     .required('Email requerido'),
+  message: Yup.string()
+    .min(10, 'Debe contener tres caracteres o más')
+    .required('Mensahe requerido'),
 })

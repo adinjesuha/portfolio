@@ -69,18 +69,24 @@ export const GlobalStyle = createGlobalStyle`
   input,
   textarea,
   select {
-    border: none;
-    border-radius: 0.4rem;
+    border: 1px solid;
+    border-color: ${({theme}) => theme.form.borderColor};
+    border-radius: 0.2rem;
     background-color: ${({theme}) => theme.form.background};
     color: ${({theme}) => theme.form.text};
     font-weight: 300;
     font-size: 1.6rem;
-    font-family: 'GT Eesti', '-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol', sans-serif;
-    margin-bottom: 2rem;
-    padding: 1.4rem 0 1.4rem 1.4rem;
+    font-family: 'GT Eesti', sans-serif;
+    margin-bottom: 1.5rem;
     width: 100%;
+    padding: 1.4rem 0 1.4rem 1.4rem;
     &:focus {
       outline: 0;
+    }
+    @media ${device.tablet}{
+      padding: 2rem 1.6rem;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
     }
   }
   button,
@@ -90,9 +96,20 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--white);
     cursor: pointer;
     border: 0;
-    border-radius: 0.4rem;
-    padding: 1rem 1.6rem;
+    border-radius: 0.2rem;
+    padding: 1.4rem 0;
     width: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    @media ${device.tablet}{
+      padding: 2rem 1.6rem;
+    }
+  }
+  button:disabled,
+  button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
   }
   input[type='radio']{
     position: absolute;

@@ -10,31 +10,15 @@ import { Error } from './error'
 
 
 const FormWrapper = styled.div`
-  background: ${({theme}) => theme.background};
+  /* background: ${({theme}) => theme.background}; */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6rem 2rem;
-  .heading{
-    text-align: center;
-    h2, h3{
-      margin: 0;
-    }
-    h3{
-      font-weight: 300;
-      color: var(--brand);
-    }
-    h2{
-      font-weight: 300;
-      margin-top: 1rem;
-      margin-bottom: 4rem;
-    }
-  }
   form{
     max-width: 60rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
   }
   .project-type{
     display: flex;
@@ -66,10 +50,6 @@ const SuccessMessage = styled.div`
 const ContactForm = () => {
   return (
     <FormWrapper>
-      <div className="heading">
-        <h3>Tienes algún proyecto en mente?</h3>
-        <h2>Agenda una reunión</h2>
-      </div>
       <Formik 
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={ContactSchema}
@@ -166,12 +146,18 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-          <Field
-            component="textarea" 
-            name="message" 
-            rows="4"
-            placeholder="En que puedo ayudarte?" 
-          />
+          <div>
+            <p>Como puedo ayudarte?</p>
+            <Field
+              component="textarea" 
+              name="message" 
+              rows="4"
+              placeholder="Tu mensaje...*" 
+            />
+            <Error show={errors.message && touched.message}>
+              {errors.message}
+            </Error>
+          </div>
           {status && status.success 
             ? <SuccessMessage show={status}>
               <p>Gracias, {values.name}</p>
@@ -180,10 +166,10 @@ const ContactForm = () => {
             : null
           }
           <button 
-            className="btn-primary"
+            className="btn-primary btn-form"
             type="submit"
             disabled={!isValid || isSubmitting}
-          >{isSubmitting ? <span>Enviando...</span> : <span>Enviar Consulta</span>}</button>
+          >{isSubmitting ? <span>Enviando...</span> : <span>Enviar</span>}</button>
         </Form>
       )}
       </Formik>

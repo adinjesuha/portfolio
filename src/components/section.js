@@ -18,11 +18,12 @@ const SectionContainer = styled.div`
     min-height: calc(100vh - 100px);
     margin-bottom: 0;
   }
-  @media ${device.laptopL}{
+  @media ${device.laptop}{
     padding-bottom: 15rem;
     &:first-child{
+      min-height: 100vh;
       justify-content: flex-end;
-      padding-top: 15rem;
+      
     }
   }
 `;
