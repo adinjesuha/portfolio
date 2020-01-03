@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { device } from '../utils/brakpoints'
 
 const SectionContainer = styled.div`
-  max-width: 1366px;
+  width: 100%;
+  max-width: 1280px;
   margin: auto;
   flex: 0 1 auto;
   display: flex;

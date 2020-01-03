@@ -17,6 +17,7 @@ export const lightTheme = {
   filter: 'invert(0)',
   background: light500,
   borderColor: light500,
+  toggleMenuButton: dark700,
   form: {
     background: white,
     text: grey100,
@@ -38,6 +39,7 @@ export const darkTheme = {
   filter: 'invert(1)',
   background: dark500,
   borderColor: dark300,
+  toggleMenuButton: white,
   form: {
     background: dark700,
     text: dark300,

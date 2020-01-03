@@ -27,7 +27,7 @@ const dataWorks = [
     wip: false
   },
   {
-    index: 0,
+    index: 2,
     title: "AgroBioTek Capacitaciones",
     image: 'wwd01.jpg',
     content: `Diseño y desarrollo de la plataforma de marketing para capacitaciones de agroBioTek en Centroamerica.`,

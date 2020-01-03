@@ -25,7 +25,6 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Header 
-        className="navbar-bg" 
         fill={themeMode.logo} 
         toggle={toggleTheme}
         isDark={theme === 'dark'}

@@ -20,6 +20,7 @@ const ToggleBtn = styled.button`
   vertical-align: middle;
   background: transparent none repeat scroll 0% 0%;
   appearance: none;
+  z-index: 1000;
   &:hover, &focus{
     opacity: 1;
   }

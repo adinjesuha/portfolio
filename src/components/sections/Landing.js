@@ -30,7 +30,7 @@ const Landing = () => {
       <H1>
         <span>Hola, soy</span>
         <span>
-          Adin Jesuha {" "}
+          Adin Jesuha, {" "}
           <TextLoop>
             <span>Front-end dev</span>
             <span>JAMStack lover</span>
