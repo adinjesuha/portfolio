@@ -10,12 +10,12 @@ import { Error } from './error'
 
 
 const FormWrapper = styled.div`
-  /* background: ${({theme}) => theme.background}; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 2rem 0 0;
   form{
+    width: 100%;
     max-width: 60rem;
     display: flex;
     flex-direction: column;
@@ -68,31 +68,20 @@ const ContactForm = () => {
           }, 300);
         }}
       >
-      {({ 
-        values, 
-        isSubmitting, 
-        errors, 
-        touched,
-        isValid,
-        status
-       }) => (
+      {({ values, isSubmitting, errors, touched,isValid,status}) => (
         <Form>
           <Field 
             type="text"
             name="name" 
             placeholder="Tu nombre*" 
           />
-          <Error show={errors.name && touched.name}>
-            {errors.name}
-          </Error>
+          <Error show={errors.name && touched.name}>{errors.name}</Error>
           <Field 
             type="email"
             name="email"
             placeholder="Tu correo electrónico*"
           />
-          <Error show={errors.email && touched.email}>
-            {errors.email}
-          </Error>
+          <Error show={errors.email && touched.email}>{errors.email}</Error>
           <div className="project-type">
             <p>Tipo de proyecto:</p>
             <div className="radio-group">
@@ -154,9 +143,7 @@ const ContactForm = () => {
               rows="4"
               placeholder="Tu mensaje...*" 
             />
-            <Error show={errors.message && touched.message}>
-              {errors.message}
-            </Error>
+            <Error show={errors.message && touched.message}>{errors.message}</Error>
           </div>
           {status && status.success 
             ? <SuccessMessage show={status}>

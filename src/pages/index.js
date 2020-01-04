@@ -6,16 +6,16 @@ import Landing from '../components/sections/landing'
 import About from '../components/sections/about'
 import Works from '../components/sections/works'
 import Technologies from '../components/sections/technologies'
-import PreFooter from '../components/sections/pre-footer'
+import Contact from '../components/sections/contact'
 
 const IndexPage = () => (
-  <Layout>
+  <Layout isOnePage={true}>
     <SEO title="Home" />
     <Landing />
     <About />
     <Technologies />
     <Works />
-    <PreFooter />
+    <Contact />
   </Layout>
 )
 

@@ -14,7 +14,7 @@ const StyledPage = styled.div`
   margin: 0 auto;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isOnePage }) => {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   
@@ -24,10 +24,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
-      <Header 
-        toggle={toggleTheme}
-        isDark={theme === 'dark'}
-      />
+      <Header toggle={toggleTheme} isDark={theme === 'dark'} isOnePage={isOnePage}/>
       <StyledPage>
         <main>{children}</main>
         <Footer />

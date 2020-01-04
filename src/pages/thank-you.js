@@ -6,10 +6,10 @@ import ThankYou from '../components/sections/thank-you'
 
 const ThankU = () => {
   return (
-    <Layout>
+    <Layout isOnePage={false}>
       <SEO title="Thank you!" />
       <ThankYou />
-  </Layout>
+    </Layout>
   )
 }
 

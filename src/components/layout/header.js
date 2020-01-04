@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'gatsby'
 import Headroom from 'react-headroom'
 import styled from 'styled-components'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
@@ -33,17 +34,11 @@ const Navbar = styled.div`
   max-width: 1280px;
   padding: 2.5rem 2rem;
   overflow: hidden;
-  .right-nav{
-    display: flex;
-    justify-content: space-between;
-  }
 `
 
-const StyledAnchorLink = styled(AnchorLink)`
-  transition: opacity 0.3s cubic-bezier(.215,.61,.355,1);
-  &:hover{
-    opacity: 0.5;
-  }
+const MenuWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const ResponsiveMenu = styled.div`
@@ -86,11 +81,14 @@ const ResponsiveMenu = styled.div`
     }
   }
 `
+const StyledAnchorLink = styled(AnchorLink)`
+  transition: opacity 0.3s cubic-bezier(.215,.61,.355,1);
+  &:hover{
+    opacity: 0.5;
+  }
+`
 
-
-
-
-const Header = ({isDark, toggle}) => {
+const Header = ({isDark, toggle, isOnePage}) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   useEffect(() => {
@@ -103,22 +101,30 @@ const Header = ({isDark, toggle}) => {
     <>
       <HeaderContainer>
         <Navbar>
-          <Logo />
-          <nav className="right-nav">
-            <ResponsiveMenu showMenu={menuOpened}>
-              <StyledAnchorLink offset='100' href="#about">Sobre mí</StyledAnchorLink>
-              <StyledAnchorLink offset='100' href="#works">Trabajos</StyledAnchorLink>
-              <StyledAnchorLink offset='100' href="#contact">Contáctame</StyledAnchorLink>
-            </ResponsiveMenu>
-            <Toggle 
-              isDark={isDark} 
-              toggle={toggle}
-            />
-            <MobileToggle 
-              menuOpened={menuOpened} 
-              setMenuOpened={setMenuOpened}
-            />
-          </nav>
+          <Link to="/">
+            <Logo />
+          </Link>
+          <MenuWrapper>
+          {isOnePage ? (
+            <React.Fragment>
+              <ResponsiveMenu showMenu={menuOpened}>
+                <StyledAnchorLink offset='100' href="#about">Sobre mí</StyledAnchorLink>
+                <StyledAnchorLink offset='100' href="#works">Trabajos</StyledAnchorLink>
+                <StyledAnchorLink offset='100' href="#contact">Contáctame</StyledAnchorLink>
+              </ResponsiveMenu>
+              <Toggle 
+                isDark={isDark} 
+                toggle={toggle}
+              />
+              <MobileToggle 
+                menuOpened={menuOpened} 
+                setMenuOpened={setMenuOpened}
+              />
+            </React.Fragment>
+          ) : (
+            <Link to="/">Ir al inicio</Link>
+          )}
+          </MenuWrapper>
         </Navbar>
       </HeaderContainer>
     </>

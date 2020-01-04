@@ -44,19 +44,19 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   h1, h2, h3, h4, h5, h6{
-    font-weight: 500;
+    font-weight: 400;
     color: ${({theme}) => theme.title};
     margin: 0;
     margin-bottom: 2rem;
   }
   h1{
-    font-size: 3.2rem;
+    font-size: 4.2rem;
   }
   h2{
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
   h3{
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   p{
     line-height: 1.5;
@@ -97,19 +97,21 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     border: 0;
     border-radius: 0.2rem;
-    padding: 1.4rem 0;
-    width: auto;
+    padding: 1.4rem 1.6rem;
+    width: 100%;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     @media ${device.tablet}{
       padding: 2rem 1.6rem;
     }
   }
+  .btn--fixed-width{
+    width: 240px;
+  }
   button:disabled,
   button[disabled]{
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+    background-color: var(--grey-500);
+    color: var(--grey-100);
   }
   input[type='radio']{
     position: absolute;
@@ -124,13 +126,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   @media ${device.tablet}{
     h1{
-      font-size: 6.2rem;
-    }
-    h2{
       font-size: 5.2rem;
     }
+    h2{
+      font-size: 4.2rem;
+    }
     h3{
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 `
