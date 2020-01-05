@@ -1,4 +1,5 @@
 import React from 'react'
+import {navigate} from 'gatsby'
 import { Formik, Form, Field } from 'formik';
 import styled from 'styled-components'
 
@@ -61,6 +62,7 @@ const ContactForm = () => {
               css: 'sending'
             })
             setSubmitting(false);
+            navigate("/thank-you", { replace: true })
             setStatus({
               success: 'Email sent !',
               css: 'success'

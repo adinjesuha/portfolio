@@ -4,16 +4,17 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import Landing from '../components/sections/landing'
 import About from '../components/sections/about'
+import Tech from '../components/sections/tech'
 import Works from '../components/sections/works'
-import Technologies from '../components/sections/technologies'
 import Contact from '../components/sections/contact'
+
 
 const IndexPage = () => (
   <Layout isOnePage={true}>
     <SEO title="Home" />
     <Landing />
     <About />
-    <Technologies />
+    <Tech />
     <Works />
     <Contact />
   </Layout>

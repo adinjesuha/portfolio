@@ -7,6 +7,9 @@ export const Card = styled.div`
   flex-wrap: wrap;
   align-items: center;
   margin: 50px 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
   @media ${device.tablet}{
     flex-wrap: nowrap;
   }
@@ -24,18 +27,6 @@ export const ImageCard = styled.div`
     width: 100%;
     height: 100%;
     max-width: 480px;
-  }
-  .csw{
-    height: 30px;
-    top: 0;
-    border-radius: 20px;
-    bottom: 20px;
-    left: 20px;
-    background: #fff;
-    color: #042825;
-    padding: 12px 22px;
-    position: absolute;
-    z-index: 1;
   }
   @media ${device.tablet}{
     order: ${({order}) => order || 'initial'};

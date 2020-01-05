@@ -16,7 +16,6 @@ const ProjectCard = ({
   return (
     <Card>
       <ImageCard order={inverted && 2}>
-        { wip && <div className="csw">Coming soon!</div> }
         <Image imgName={image}/>
       </ImageCard>
       <ContentCard>

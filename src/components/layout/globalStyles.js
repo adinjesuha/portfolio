@@ -8,16 +8,19 @@ export const GlobalStyle = createGlobalStyle`
     --dark-500: #212429;
     --dark-300: #35383D;
     --dark-100: #62707B;
-
+    
     --grey-700: #333D41;
     --grey-500: #575B60;
     --grey-300: #9CA1A6;
-    --grey-100: #BBBBBB;
-
+    
     --light-500: #F7FAFD;
     --white: #ffffff;
-
     --brand: #FF2848;
+
+    // fixed
+    --grey-100: #f9f9f9;
+    --dark-500: #1B1F26;
+    
   }
   html{
     box-sizing: border-box;
@@ -34,13 +37,13 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.2;
     letter-spacing: 0.02em;
     padding: 0;
     margin: 0;
     @media ${device.tablet}{
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
   }
   h1, h2, h3, h4, h5, h6{
@@ -56,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 3.2rem;
   }
   h3{
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   p{
     line-height: 1.5;
@@ -69,8 +72,8 @@ export const GlobalStyle = createGlobalStyle`
   input,
   textarea,
   select {
-    border: 1px solid;
-    border-color: ${({theme}) => theme.form.borderColor};
+    border: 0px solid;
+    border-color: none;
     border-radius: 0.2rem;
     background-color: ${({theme}) => theme.form.background};
     color: ${({theme}) => theme.form.text};
@@ -98,7 +101,6 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
     border-radius: 0.2rem;
     padding: 1.4rem 1.6rem;
-    width: 100%;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     @media ${device.tablet}{
@@ -110,8 +112,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   button:disabled,
   button[disabled]{
-    background-color: var(--grey-500);
+    background-color: var(--dark-100);
     color: var(--grey-100);
+    cursor: no-drop;
   }
   input[type='radio']{
     position: absolute;
@@ -124,6 +127,13 @@ export const GlobalStyle = createGlobalStyle`
     background-color: var(--brand);
     color: var(--white);
   }
+  .separator{
+    background-color: var(--brand);
+    margin: 2rem auto;
+    display: block;
+    height: 3px;
+    width: 40px;
+  }
   @media ${device.tablet}{
     h1{
       font-size: 5.2rem;
@@ -132,7 +142,10 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 4.2rem;
     }
     h3{
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+    }
+    .separator{
+      margin: 3rem auto;
     }
   }
 `

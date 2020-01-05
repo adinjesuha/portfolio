@@ -1,12 +1,13 @@
 const dark700 = '#15181E';
-const dark500 = '#212429';
+const dark500 = '#1B1F26';
 const dark300 = '#35383D';
 
 const grey500 = '#575B60'
-const grey100 = '#BBBBBB';
+const grey300 ='#9CA1A6';
+const grey100 = '#f9f9f9';
 
 const light500 = '#F7FAFD';
-const white = '#ffffff';
+const white = '#fff';
 
 export const lightTheme = {
   body: white,
@@ -14,7 +15,7 @@ export const lightTheme = {
   text: dark700,
   toggleBorder: white,
   filter: 'invert(0)',
-  background: light500,
+  background: grey100,
   borderColor: light500,
   toggleMenuButton: dark700,
   form: {
@@ -24,7 +25,7 @@ export const lightTheme = {
   },
   card: {
     bodyText: grey500,
-    footerText: grey100,
+    footerText: grey300,
     underline: 'rgba(4,40,37,.2)',
     underlinAfter: '#042825'
   }
