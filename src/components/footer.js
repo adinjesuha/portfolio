@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { device } from '../../utils/brakpoints'
+import { device } from '../utils/brakpoints'
 
 const Wrapper = styled.footer`
   text-align: center;

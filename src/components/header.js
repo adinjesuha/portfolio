@@ -4,9 +4,9 @@ import Headroom from 'react-headroom'
 import styled from 'styled-components'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-import Logo from '../logo'
-import Toggle from '../toggle'
-import MobileToggle from '../mobileMenu/toggleMenu'
+import Logo from './logo'
+import Toggle from './toggle'
+import MobileToggle from './mobileMenu/toggleMenu'
 
 
 // if (typeof window !== 'undefined') {

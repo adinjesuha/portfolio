@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import styled, { ThemeProvider } from 'styled-components'
 
 import { lightTheme, darkTheme } from './theme'
-import { GlobalStyle } from './globalStyles'
-import { useDarkMode } from '../useDarkMode'
+import { GlobalStyle } from './styles/globalStyles'
+import { useDarkMode } from './useDarkMode'
 import Header from './header'
 import Footer from './footer'
 
