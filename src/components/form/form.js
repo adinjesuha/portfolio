@@ -55,19 +55,28 @@ const ContactForm = () => {
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={ContactSchema}
         onSubmit={(values, { setStatus, setSubmitting }) => {
-          setTimeout(() => {
-            console.log('from submit: ', values)
-            setStatus({
-              success: 'Sending email...',
-              css: 'sending'
-            })
-            setSubmitting(false);
+          fetch("../../.netlify/functions/airtable", {
+            method: "POST",
+            body: JSON.stringify(values)
+          })
+          .then(() => {
+            setSubmitting(false)
             navigate("/thank-you", { replace: true })
-            setStatus({
-              success: 'Email sent !',
-              css: 'success'
-            })
-          }, 300);
+          })
+          .catch(error => alert(error))
+          // setTimeout(() => {
+          //   console.log('from submit: ', values)
+          //   setStatus({
+          //     success: 'Sending email...',
+          //     css: 'sending'
+          //   })
+          //   setSubmitting(false);
+          //   navigate("/thank-you", { replace: true })
+          //   setStatus({
+          //     success: 'Email sent !',
+          //     css: 'success'
+          //   })
+          // }, 300);
         }}
       >
       {({ values, isSubmitting, errors, touched,isValid,status}) => (
