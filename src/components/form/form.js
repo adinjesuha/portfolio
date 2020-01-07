@@ -55,7 +55,7 @@ const ContactForm = () => {
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={ContactSchema}
         onSubmit={(values, { setStatus, setSubmitting }) => {
-          fetch("../../.netlify/functions/airtable", {
+          fetch("../../../functions/airtable", {
             method: "POST",
             body: JSON.stringify(values)
           })
