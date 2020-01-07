@@ -7,16 +7,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-scroll-reveal`,
-      options: {
-        once: true, 
-        selector: '[data-sal]',
-        animateClassName: 'sal-animate', 
-        disabledClassName: 'sal-disabled', 
-        rootMargin: '0% 50%' 
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

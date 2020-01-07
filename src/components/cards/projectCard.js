@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card, ImageCard, ContentCard  } from './styles'
+import { Card, ImageCard, ContentCard  } from './styleCards'
 import Image from '../image'
 
 const ProjectCard = ({ 
@@ -10,12 +10,11 @@ const ProjectCard = ({
   content, 
   descriptionLink,
   href,
-  tag,
-  wip
+  tag
 }) => {
   return (
     <Card>
-      <ImageCard order={inverted && 2}>
+      <ImageCard order={inverted ? "2" : undefined}>
         <Image imgName={image}/>
       </ImageCard>
       <ContentCard>

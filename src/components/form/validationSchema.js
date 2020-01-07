@@ -4,11 +4,11 @@ export const ContactSchema = Yup.object({
   name: Yup.string()
     .min(3, 'Debe contener tres caracteres o más')
     .max(30, 'Debe contener 30 caracteres o menos')
-    .required('Nombre requerido'),
+    .required('* Nombre requerido'),
   email: Yup.string()
     .email('Dirección de correo no valida')
-    .required('Email requerido'),
+    .required('* Email requerido'),
   message: Yup.string()
     .min(10, 'Debe contener diez caracteres o más')
-    .required('Mensaje requerido'),
+    .required('* Mensaje requerido'),
 })

@@ -123,11 +123,9 @@ const Header = ({isDark, toggle, isOnePage}) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   useEffect(() => {
-    if(menuOpened){
-      setMenuOpened( menuOpened => !menuOpened);
-      window.addEventListener('scroll', setMenuOpened);
-      return () => window.removeEventListener('scroll', setMenuOpened);
-    } return null
+    setMenuOpened( menuOpened => !menuOpened);
+    window.addEventListener('scroll', setMenuOpened);
+    return () => window.removeEventListener('scroll', setMenuOpened);
   }, []);
   
   return (

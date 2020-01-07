@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
-import '../../fonts/fonts-ui.css'
+
 import { device } from '../../utils/brakpoints'
+import '../../fonts/fonts-ui.css'
 
 export const GlobalStyle = createGlobalStyle`
   :root{
@@ -28,6 +29,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   *, *:before, *:after{
     box-sizing: inherit;
+  }
+  body.no-js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
   body{
     background: ${({ theme }) => theme.body};
@@ -134,6 +139,45 @@ export const GlobalStyle = createGlobalStyle`
     height: 3px;
     width: 40px;
   }
+
+  .fadeIn {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+  }
+  .fadeIn.enter {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+  }
+  .slideLeft {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .slideLeft.enter {
+    transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .slideUp {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .slideUp.enter {
+    transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (print), (prefers-reduced-motion: reduce) {
+    .fadeIn,
+    .slideLeft,
+    .slideUp {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   @media ${device.tablet}{
     h1{
       font-size: 5.2rem;

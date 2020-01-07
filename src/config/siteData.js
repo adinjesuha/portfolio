@@ -12,7 +12,7 @@ export const works = [
   {
     index: 0,
     title: "AgroBioTek Internacional",
-    image: 'wwd01.jpg',
+    image: 'wc01.jpg',
     content: `Diseño y desarrollo del Landing Page para AgroBioTek Internacional.`,
     inverted: false,
     descriptionLink: 'Visita el sitio web',
@@ -23,7 +23,7 @@ export const works = [
   {
     index: 1,
     title: "Cámara hondureña de la leche CAHLE",
-    image: 'wwd01.jpg',
+    image: 'wc02.jpg',
     content: `Diseño y desarrollo del sitio web para la Cámara hondureña de la leche, utilizando JAMStack como arquitectura de desarrollo.`,
     inverted: true,
     descriptionLink: 'Visita el sitio web',
@@ -34,7 +34,7 @@ export const works = [
   {
     index: 2,
     title: "AgroBioTek Capacitaciones",
-    image: 'wwd01.jpg',
+    image: 'wc03.png',
     content: `Diseño y desarrollo de la plataforma de marketing para capacitaciones de agroBioTek en Centroamerica.`,
     inverted: false,
     descriptionLink: 'Trabajo en desarrollo',

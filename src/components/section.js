@@ -5,10 +5,10 @@ import { device } from '../utils/brakpoints'
 
 const SectionContainer = styled.div`
   background-color: ${({theme, bg}) => bg ? theme.background : 'transparent'};
-  max-width: 1280px;
   padding: 8rem 2rem;
   margin: auto;
   width: 100%;
+  max-width: 1280px;
   min-height: 100vh;
   flex: 0 1 auto;
   display: flex;
@@ -61,16 +61,17 @@ const Heading = styled.div`
   }
 `
 
-const Container = ({ children, id, bg }) => <SectionContainer id={id} bg={bg}>{children}</SectionContainer>
+const Container = ({ children, id, bg}) => <SectionContainer id={id} bg={bg}>{children}</SectionContainer>
 
-const Content = ({children}) => <SectionContent>{children}</SectionContent>
-
-const Header = ({ name, align }) => (
-  <Heading align={align}>
+const Header = ({ name, align, ...props }) => (
+  <Heading align={align} {...props}>
     <h2>{name}</h2>
     <span className="separator" />
   </Heading>
 )
+
+const Content = ({children, ...props}) => <SectionContent {...props}>{children}</SectionContent>
+
 
 export default {
   Container,

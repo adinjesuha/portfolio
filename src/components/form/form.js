@@ -75,13 +75,13 @@ const ContactForm = () => {
           <Field 
             type="text"
             name="name" 
-            placeholder="Tu nombre*" 
+            placeholder="Tu nombre *" 
           />
           <Error show={errors.name && touched.name}>{errors.name}</Error>
           <Field 
             type="email"
             name="email"
-            placeholder="Tu correo electrónico*"
+            placeholder="Tu correo electrónico *"
           />
           <Error show={errors.email && touched.email}>{errors.email}</Error>
           <div className="project-type">
@@ -143,7 +143,7 @@ const ContactForm = () => {
               component="textarea" 
               name="message" 
               rows="4"
-              placeholder="Tu mensaje...*" 
+              placeholder="Tu mensaje... *" 
             />
             <Error show={errors.message && touched.message}>{errors.message}</Error>
           </div>

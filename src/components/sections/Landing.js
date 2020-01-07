@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import TextLoop from "react-text-loop";
-import {useSpring, animated} from 'react-spring'
 
 import Section from '../section'
 import { device } from '../../utils/brakpoints'
@@ -26,22 +25,19 @@ const H1 = styled.h1`
 
 
 const Landing = () => {
-  const props = useSpring({ opacity: 1, from: {opacity: 0} })
   return (
     <Section.Container>
-      <animated.div style={props}>
-        <H1>
-          <span>Hola, soy</span>
-          <span>
-            Adin Jesuha, {" "}
-            <TextLoop>
-              <span>Front-end dev</span>
-              <span>JAMStack lover</span>
-              <span>UI Designer</span>
-            </TextLoop>
-          </span>
-        </H1>
-      </animated.div>
+      <H1>
+        <span>Hola, soy</span>
+        <span>
+          Adin Jesuha, {" "}
+          <TextLoop>
+            <span>Front-end dev</span>
+            <span>JAMStack lover</span>
+            <span>UI Designer</span>
+          </TextLoop>
+        </span>
+      </H1>
     </Section.Container>
   )
 }
