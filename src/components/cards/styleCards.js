@@ -6,7 +6,9 @@ export const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 50px 0;
+  margin: 5rem auto;
+  width: 100%;
+  max-width: 128rem;
   &:last-child{
     margin-bottom: 0;
   }
@@ -26,7 +28,7 @@ export const ImageCard = styled.div`
   div{
     width: 100%;
     height: 100%;
-    max-width: 480px;
+    max-width: 460px;
   }
   @media ${device.tablet}{
     order: ${({order}) => order || 'initial'};
@@ -64,28 +66,6 @@ export const ContentCard = styled.div`
     span, a{
       font-size: 1.4rem;
       color: ${({theme}) => theme.card.footerText};
-    }
-    a{
-      position: relative;
-      &:before, &:after{
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        height: 1px;
-      }
-      &:before{
-        background-color: ${({theme}) => theme.card.underline};
-      }
-      &:after{
-        right: 100%;
-        background-color: ${({theme}) => theme.card.underlinAfter};
-        transition: all .4s cubic-bezier(.215,.61,.355,1);
-      }
-      &:hover::after{
-        right: 0;
-      }
     }
   }
   @media ${device.tablet}{

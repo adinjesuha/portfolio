@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Card, ImageCard, ContentCard  } from './styleCards'
 import Image from '../image'
+import ExternalLink from '../styles/external-link'
 
 const ProjectCard = ({ 
   title, 
@@ -23,7 +24,10 @@ const ProjectCard = ({
           <p>{content}</p>
         </div>
         <div className="content-footer">
-          <span>{descriptionLink} <a href={href} target="_blank" rel="noopener noreferrer">{tag}</a></span>
+          <span>{descriptionLink} 
+            {" "}
+            <ExternalLink href={href} text={tag}/>
+          </span>
         </div> 
       </ContentCard>
     </Card>

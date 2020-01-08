@@ -18,7 +18,6 @@ export const works = [
     descriptionLink: 'Visita el sitio web',
     href: 'http://agrobiotek.com',
     tag: 'agrobiotek.com',
-    wip: false
   },
   {
     index: 1,
@@ -29,17 +28,15 @@ export const works = [
     descriptionLink: 'Visita el sitio web',
     href: 'https://www.cahle.org/',
     tag: 'www.cahle.org',
-    wip: false
   },
   {
     index: 2,
     title: "AgroBioTek Capacitaciones",
-    image: 'wc03.png',
+    image: 'wc03.jpg',
     content: `Diseño y desarrollo de la plataforma de marketing para capacitaciones de agroBioTek en Centroamerica.`,
     inverted: false,
     descriptionLink: 'Trabajo en desarrollo',
     href: null,
     tag: null,
-    wip: true
   }
 ]

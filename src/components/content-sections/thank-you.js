@@ -19,7 +19,7 @@ const Hero = styled.div`
   text-align: center;
   h1{
     font-size: 2.2rem;
-    font-family: Playfair Display,sans-serif;
+    font-family: 'Playfair Display',sans-serif;
     font-weight: 400;
     line-height: 1.6;
     margin: 1.875rem auto;

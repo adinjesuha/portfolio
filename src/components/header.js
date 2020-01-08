@@ -17,6 +17,7 @@ import MobileToggle from './mobileMenu/toggleMenu'
 
 const HeaderContainer = styled(Headroom)`
   .headroom{
+    padding: 0 2rem !important;
     position: fixed !important;
     z-index: 100 !important;
   }
@@ -31,7 +32,8 @@ const Navbar = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1280px;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 0;
+  margin: 0 auto;
   overflow: hidden;
 `
 
@@ -132,7 +134,7 @@ const Header = ({isDark, toggle, isOnePage}) => {
     <>
       <HeaderContainer>
         <Navbar>
-          <Link to="/">
+          <Link to="/" style={{zIndex: 1001}}>
             <Logo />
           </Link>
           <MenuWrapper>

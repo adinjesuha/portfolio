@@ -8,14 +8,16 @@ const SectionContainer = styled.div`
   padding: 8rem 2rem;
   margin: auto;
   width: 100%;
-  max-width: 1280px;
   min-height: 100vh;
   flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   scroll-behavior: smooth;
-  &:first-child:not(#thank-you){
+  &:first-child{
+    padding-top: 0;
+  }
+  /* &:first-child:not(#thank-you){
     justify-content: center;
     min-height: calc(100vh - 100px);
     margin-bottom: 0;
@@ -26,12 +28,13 @@ const SectionContainer = styled.div`
       min-height: 100vh;
       justify-content: flex-end;
     }
-  }
+  } */
 `;
 
 const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 75rem;
   margin: 0 auto;
   align-items: center;
@@ -43,9 +46,6 @@ const SectionContent = styled.div`
   }
   strong{
     font-weight: 500;
-  }
-  a{
-    text-decoration: underline;
   }
   @media ${device.tablet}{
     p{

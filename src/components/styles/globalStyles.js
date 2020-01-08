@@ -12,13 +12,13 @@ export const GlobalStyle = createGlobalStyle`
     
     --grey-700: #333D41;
     --grey-500: #575B60;
-    --grey-300: #9CA1A6;
     
     --light-500: #F7FAFD;
     --white: #ffffff;
     --brand: #FF2848;
 
     // fixed
+    --grey-300: #888;
     --grey-100: #f9f9f9;
     --dark-500: #1B1F26;
     
@@ -71,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.04em;
   }
   a{
-    color: ${({theme}) => theme.text};
+    color: ${({theme}) => theme.title};
     text-decoration: none;
   }
   input,
@@ -138,43 +138,11 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     height: 3px;
     width: 40px;
-  }
-
-  .fadeIn {
-    transition: opacity 1s ease-in-out;
-    opacity: 0;
-  }
-  .fadeIn.enter {
-    transition: opacity 1s ease-in-out;
-    opacity: 1;
-  }
-  .slideLeft {
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  .slideLeft.enter {
-    transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .slideUp {
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  .slideUp.enter {
-    transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (print), (prefers-reduced-motion: reduce) {
-    .fadeIn,
-    .slideLeft,
-    .slideUp {
-      transition: none;
-      opacity: 1;
-      transform: none;
+    &__primary{
+      margin: 2.5rem auto;
+    }
+    &__small{
+      margin: 1rem auto;
     }
   }
 
@@ -190,6 +158,12 @@ export const GlobalStyle = createGlobalStyle`
     }
     .separator{
       margin: 3rem auto;
+      &__small{
+        margin: 2rem auto;
+      }
+      &__primary{
+        margin: 4rem 0;
+      }
     }
   }
 `
