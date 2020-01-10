@@ -15,7 +15,6 @@ const OpenSourceSection = styled.div`
   margin: 0 auto;
   margin: 5rem auto;
   h3{
-    text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     margin: 0;
@@ -143,12 +142,10 @@ const OpenSourceImage = styled.a`
   }
 `
 
-const OpenSourceCard = (props) => {
-  console.log(props)
+const OpenSourceCard = () => {
   return (
     <OpenSourceSection>
       <h3>Open Source</h3>
-      <span className="separator separator__small" />
       <OpenSourceContent>
 
         <OpenSourceItem>
@@ -186,16 +183,16 @@ const OpenSourceCard = (props) => {
         </OpenSourceItem>
 
         <OpenSourceItem>
-          <OpenSourceImage to="/">
-            <div className="image-box" />
+          <OpenSourceImage href="https://gatsby-dashboard-auth.netlify.com/" target="_blank" rel="noopener noreferrer">
+            <Image imgName="pw02.jpg" />
           </OpenSourceImage>
           <OpenSourceData>
             <h4>Dashboard Template</h4>
             <p>Dashboard App con servicio de autenticación de usuarios y capacidades <ExternalLink href="http://es.wikipedia.org/wiki/CRUD" text="CRUD" />.</p>
-            <p>Tech: <strong>Gatsby - Redux - Firebase & Firestore - Formik</strong></p>
+            <p>Tech: <strong>Gatsby - Redux - Firebase & Firestore - Reactstrap</strong></p>
             <BtnGroup>
               <BtnLink 
-                href="https://mdx-blog-boilerplate.netlify.com/"
+                href="https://gatsby-dashboard-auth.netlify.com/"
                 target="_blank" 
                 rel="noopener noreferrer"
                 primary
@@ -206,7 +203,7 @@ const OpenSourceCard = (props) => {
                 visitar
               </BtnLink>
               <BtnLink 
-                href="https://github.com/adinjesuha/gatsby-blog"
+                href="https://github.com/adinjesuha/auth-with-gatsby-fireebase"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -221,35 +218,13 @@ const OpenSourceCard = (props) => {
 
         <OpenSourceItem>
           <OpenSourceImage to="/">
-            <div className="image-box" />
+            <Image imgName="pw03.jpg" />
           </OpenSourceImage>
           <OpenSourceData>
-            <h4>TODO/Auth Boilerplate</h4>
-            <p>TODO list boilerplate con servicio de autenticación.</p>
-            <p>Tech: <strong>Gatsby - Apollo Client - Hasura - Graphql</strong></p>
-            <BtnGroup>
-              <BtnLink 
-                href="https://mdx-blog-boilerplate.netlify.com/"
-                target="_blank" 
-                rel="noopener noreferrer"
-                primary
-              >
-                <span>
-                  <LinkIcon />
-                </span>
-                visitar
-              </BtnLink>
-              <BtnLink 
-                href="https://github.com/adinjesuha/gatsby-blog"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <span>
-                  <GithubIcon />
-                </span>
-                código
-              </BtnLink>
-            </BtnGroup>
+            <h4>Gatsby Ecommerce</h4>
+            <p>Ecommerce template contruido con Gatsby, Hasura (GraphQL API) y Stripe.</p>
+            <p>Tech: <strong>Gatsby - Hasura - Stripe - Auth0</strong></p>
+            <h5>Proximamente</h5>
           </OpenSourceData>
         </OpenSourceItem>
 
