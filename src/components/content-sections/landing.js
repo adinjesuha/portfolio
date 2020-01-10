@@ -55,6 +55,7 @@ const Content = styled.div`
     }
     h2{
       display: inline-block;
+      letter-spacing: -0.5px;
       font-size: 3.8rem;
       text-align: left;
       max-width: 80rem;
