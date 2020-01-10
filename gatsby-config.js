@@ -18,11 +18,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `adinjesuha-portfolio`,
+        short_name: `adinjesuha`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FF2848`,
+        theme_color: `#FF2848`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
       },
