@@ -1,52 +1,9 @@
 import React from 'react'
 import {navigate} from 'gatsby'
 import { Formik, Form, Field } from 'formik';
-import styled from 'styled-components'
 
-import { device } from '../../utils/brakpoints'
 import { ContactSchema } from './validationSchema'
-import { CustomLabelChecked } from './customLabelChecked'
-import { Error } from './error'
-
-
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 0 0;
-  form{
-    width: 100%;
-    max-width: 60rem;
-    display: flex;
-    flex-direction: column;
-  }
-  .project-type{
-    display: flex;
-    flex-direction: column;
-    .radio-group{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-      > div {
-        margin-top: .775rem;
-        margin-right: .775rem;
-      }
-    }
-    @media ${device.tablet}{
-      flex-direction: row;
-      p{
-        margin-right: 2rem;
-      }
-    }
-  }
-`
-
-const SuccessMessage = styled.div`
-  visibility: ${({show}) => show ? 'visible' : 'hidden'};
-  opacity: ${({show}) => show ? '1' : '0'};
-`
+import { CustomLabelChecked, Error, FormWrapper } from './styles'
 
 const ContactForm = () => {
   return (
@@ -54,7 +11,7 @@ const ContactForm = () => {
       <Formik 
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={ContactSchema}
-        onSubmit={(values, { setStatus, setSubmitting }) => {
+        onSubmit={(values, { setSubmitting }) => {
           fetch("../../../functions/airtable", {
             method: "POST",
             body: JSON.stringify(values)
@@ -64,22 +21,9 @@ const ContactForm = () => {
             navigate("/thank-you", { replace: true })
           })
           .catch(error => alert(error))
-          // setTimeout(() => {
-          //   console.log('from submit: ', values)
-          //   setStatus({
-          //     success: 'Sending email...',
-          //     css: 'sending'
-          //   })
-          //   setSubmitting(false);
-          //   navigate("/thank-you", { replace: true })
-          //   setStatus({
-          //     success: 'Email sent !',
-          //     css: 'success'
-          //   })
-          // }, 300);
         }}
       >
-      {({ values, isSubmitting, errors, touched,isValid,status}) => (
+      {({ values, isSubmitting, errors, touched,isValid }) => (
         <Form>
           <Field 
             type="text"
@@ -156,13 +100,6 @@ const ContactForm = () => {
             />
             <Error show={errors.message && touched.message}>{errors.message}</Error>
           </div>
-          {status && status.success 
-            ? <SuccessMessage show={status}>
-              <p>Gracias, {values.name}</p>
-              <p>Me pondre en contacto contigo en las proximas 24 horas.</p>
-            </SuccessMessage>
-            : null
-          }
           <button 
             className="btn-primary btn-form"
             type="submit"
