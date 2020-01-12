@@ -1,30 +1,41 @@
 import React from 'react'
+import axios from 'axios'
+import qs from 'qs'
 import {navigate} from 'gatsby'
 import { Formik, Form, Field } from 'formik';
 
 import { ContactSchema } from './validationSchema'
 import { CustomLabelChecked, Error, FormWrapper } from './styles'
 
-const ContactForm = () => {
-  return (
-    <FormWrapper>
-      <Formik 
-        initialValues={{ name: '', email: '', message: '' }}
-        validationSchema={ContactSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          fetch("../../../functions/airtable", {
-            method: "POST",
-            body: JSON.stringify(values)
-          })
+const ContactForm = () => (
+  <FormWrapper>
+    <Formik 
+      initialValues={{ name: '', email: '', message: '' }}
+      validationSchema={ContactSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        const axiosOptions = {
+          url: "/",
+          method: "POST",
+          headers: {"Content-Type": "application/x-www-form-urlencoded" },
+          data: qs.stringify(values),
+        }
+        axios(axiosOptions)
           .then(() => {
             setSubmitting(false)
             navigate("/thank-you", { replace: true })
           })
           .catch(error => alert(error))
-        }}
-      >
+
+      }}
+    >
       {({ values, isSubmitting, errors, touched,isValid }) => (
-        <Form>
+        <Form 
+          name="Contact Form" 
+          method="POST" 
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="Contact Form" />
           <Field 
             type="text"
             name="name" 
@@ -107,9 +118,8 @@ const ContactForm = () => {
           >{isSubmitting ? <span>Enviando...</span> : <span>Enviar</span>}</button>
         </Form>
       )}
-      </Formik>
-    </FormWrapper>
-  )
-}
+    </Formik>
+  </FormWrapper>
+)
 
 export default ContactForm
