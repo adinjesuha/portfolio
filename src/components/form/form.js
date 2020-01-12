@@ -30,7 +30,7 @@ const ContactForm = () => (
       {({ values, isSubmitting, errors, touched,isValid }) => (
         <Form 
           name="Contact Form" 
-          method="POST" 
+          method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
