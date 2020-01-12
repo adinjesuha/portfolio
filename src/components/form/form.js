@@ -7,14 +7,14 @@ import { Formik, Form, Field } from 'formik';
 import { ContactSchema } from './validationSchema'
 import { CustomLabelChecked, Error, FormWrapper } from './styles'
 
-const ContactForm = props => (
+const ContactForm = () => (
   <FormWrapper>
     <Formik 
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
         const axiosOptions = {
-          url: props.location.pathname,
+          url: "/",
           method: "POST",
           headers: {"Content-Type": "application/x-www-form-urlencoded" },
           data: qs.stringify(values),
