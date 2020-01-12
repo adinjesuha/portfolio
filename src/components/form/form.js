@@ -1,11 +1,16 @@
 import React from 'react'
 import axios from 'axios'
-import qs from 'qs'
 import {navigate} from 'gatsby'
 import { Formik, Form, Field } from 'formik';
 
 import { ContactSchema } from './validationSchema'
 import { CustomLabelChecked, Error, FormWrapper } from './styles'
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 const ContactForm = () => (
   <FormWrapper>
@@ -17,7 +22,7 @@ const ContactForm = () => (
           url: "/",
           method: "POST",
           headers: {"Content-Type": "application/x-www-form-urlencoded" },
-          data: qs.stringify(values),
+          data: encode(values),
         }
         axios(axiosOptions)
           .then(() => {
@@ -29,12 +34,12 @@ const ContactForm = () => (
     >
       {({ values, isSubmitting, errors, touched,isValid }) => (
         <Form 
-          name="Contact Form" 
+          name="Contact-Form" 
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="Contact Form" />
+          <input type="hidden" name="form-name" value="Contact-Form" />
           <Field 
             type="text"
             name="name" 
