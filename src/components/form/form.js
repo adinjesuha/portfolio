@@ -27,9 +27,9 @@ const ContactForm = () => (
             ...values
           })
         })
-          .then(() => navigate("/thank-you", { replace: true })))
+          .then(() => navigate("/thank-you", { replace: true }))
           .catch(error => alert(error));
-          
+
       }}
     >
       {({ values, isSubmitting, errors, touched,isValid }) => (
