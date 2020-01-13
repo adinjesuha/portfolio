@@ -29,12 +29,6 @@ const IndexPage = () => (
       <input 
         type="radio" 
         name="projectType" 
-        id="type_Website" 
-        value="Website"
-      />
-      <input 
-        type="radio" 
-        name="projectType" 
         value="Website"
       />
       <input 
