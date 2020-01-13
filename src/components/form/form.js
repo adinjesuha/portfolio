@@ -20,7 +20,7 @@ const ContactForm = () => (
         fetch("/?no-cache=1", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({'form-name': 'contact',values})
+          body: encode({'form-name': 'contact',...values})
         })
           .then(() => {
             setSubmitting(false)
