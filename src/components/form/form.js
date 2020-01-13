@@ -17,11 +17,11 @@ const ContactForm = () => (
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
-        fetch("/?no-cache=1", {
+        fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({
-            'form-name': 'Contact-Form',
+            'form-name': 'contact',
             ...values
           })
         })
@@ -35,12 +35,12 @@ const ContactForm = () => (
     >
       {({ values, isSubmitting, errors, touched,isValid }) => (
         <Form 
-          name="Contact-Form" 
+          name="contact" 
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="Contact-Form" />
+          <input type="hidden" name="form-name" value="contact" />
           <Field 
             type="text"
             name="name" 
