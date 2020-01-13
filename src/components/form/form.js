@@ -18,16 +18,15 @@ const ContactForm = () => (
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
-
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({
-            "form-name": "Contact-Form",
-            ...values
-          })
+          body: encode(values)
         })
-          .then(() => navigate("/thank-you", { replace: true }))
+          .then(() => {
+            setSubmitting(false)
+            navigate("/thank-you", { replace: true })
+          })
           .catch(error => alert(error));
 
       }}
@@ -36,7 +35,6 @@ const ContactForm = () => (
         <Form 
           name="Contact-Form" 
           method="post"
-          action="/thank-you"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
