@@ -18,24 +18,25 @@ const ContactForm = () => (
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
-        const axiosOptions = {
-          url: "/",
+
+        fetch("/", {
           method: "POST",
-          headers: {"Content-Type": "application/x-www-form-urlencoded" },
-          data: encode(values),
-        }
-        axios(axiosOptions)
-          .then(() => {
-            setSubmitting(false)
-            navigate("/thank-you", { replace: true })
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": "Contact-Form",
+            ...values
           })
-          .catch(error => alert(error))
+        })
+          .then(() => navigate("/thank-you", { replace: true })))
+          .catch(error => alert(error));
+          
       }}
     >
       {({ values, isSubmitting, errors, touched,isValid }) => (
         <Form 
           name="Contact-Form" 
           method="post"
+          action="/thank-you"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
