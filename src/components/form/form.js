@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import {navigate} from 'gatsby'
 import { Formik, Form, Field } from 'formik';
 
@@ -18,10 +17,13 @@ const ContactForm = () => (
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
-        fetch("/", {
+        fetch("/?no-cache=1", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode(values)
+          body: encode({
+            'form-name': 'Contact-Form',
+            ...values
+          })
         })
           .then(() => {
             setSubmitting(false)
