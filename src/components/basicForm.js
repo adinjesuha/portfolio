@@ -7,7 +7,7 @@ const encode = (data) => {
       .join('&');
 }
 
-export default class Contact extends React.Component {
+export default class BasicForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -39,7 +39,7 @@ export default class Contact extends React.Component {
         <form
           name="contact"
           method="post"
-          action="/thanks/"
+          action="/thank-you/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
