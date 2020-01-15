@@ -16,19 +16,8 @@ const SectionContainer = styled.div`
   scroll-behavior: smooth;
   &:first-child{
     padding-top: 0;
+    min-height: calc(100vh - 94px);
   }
-  /* &:first-child:not(#thank-you){
-    justify-content: center;
-    min-height: calc(100vh - 100px);
-    margin-bottom: 0;
-  }
-  @media ${device.laptop}{
-    padding-bottom: 10rem;
-    &:first-child:not(#thank-you){
-      min-height: 100vh;
-      justify-content: flex-end;
-    }
-  } */
 `;
 
 const SectionContent = styled.div`

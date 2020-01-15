@@ -3,7 +3,7 @@ const dark500 = '#1B1F26';
 const dark300 = '#35383D';
 
 const grey500 = '#575B60'
-const grey300 ='#9CA1A6';
+const grey300 ='#d5d5d5';
 const grey100 = '#f9f9f9';
 
 const light500 = '#F7FAFD';
@@ -27,7 +27,7 @@ export const lightTheme = {
   },
   card: {
     bodyText: grey500,
-    footerText: grey300,
+    footerText: grey500,
     underline: 'rgba(4,40,37,.2)',
     underlinAfter: '#042825'
   }
@@ -36,7 +36,7 @@ export const lightTheme = {
 export const darkTheme = {
   body: dark700,
   title: white,
-  text: '#888',
+  text: grey300,
   toggleBorder: '#6B8096',
   filter: 'invert(1)',
   background: dark500,
@@ -50,8 +50,8 @@ export const darkTheme = {
     borderColor: 'rgba(255,255,255,.4)'
   },
   card: {
-    bodyText: grey500,
-    footerText: grey100,
+    bodyText: grey300,
+    footerText: white,
     underline: 'rgba(255,255,255,.2)',
     underlinAfter: 'rgba(255,255,255,.4)',
   }

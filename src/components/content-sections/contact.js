@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import { device } from '../../utils/brakpoints'
 import Section from '../section'
-import Form from '../form/form'
 
 
 const H1 = styled.h1`
@@ -19,10 +18,11 @@ const H1 = styled.h1`
 `
 
 const ContactFooter = styled.div`
-  padding-top: 8rem;
+  padding-top: 4rem;
   text-align: center;
-  h3{
-    font-weight: 300;
+  position: relative;
+  a{
+    display: inline-block;
   }
 `
 
@@ -30,11 +30,8 @@ const Contact = () => {
   return (
     <Section.Container id="contact" bg={true}>
       <H1>Tienes algún proyecto en mente? Trabajemos juntos.</H1>
-      <span className="separator" />
-      <Form />
       <ContactFooter>
-        <h3>Prefieres enviar un correo?</h3>
-        <a href="mailto:adinjesuha@gmail.com">adinjesuha@gmail.com</a>
+        <a href="mailto:adinjesuha@gmail.com" className="btn btn-primary   btn--fixed-width">Contáctame</a>
       </ContactFooter>
     </Section.Container>
   )

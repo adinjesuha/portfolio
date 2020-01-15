@@ -79,7 +79,7 @@ const Landing = () => {
           <span className="no-desktop-letters">Front-end dev</span>
         </h1>
         <span className="separator separator__primary"/>
-        <h2>Ayudando a las empresas a simplificar sus experiencias digitales</h2>
+        <h2>Ayudo a las empresas a simplificar sus experiencias digitales</h2>
       </Content>
     </Section.Container>
   )

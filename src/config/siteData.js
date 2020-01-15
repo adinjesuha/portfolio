@@ -40,3 +40,42 @@ export const works = [
     tag: null,
   }
 ]
+
+export const openSource = [
+  {
+    index: 0,
+    image: "pw01.jpg",
+    title: "Blog Template",
+    description: "Blog template, de diseño minimalista y facil de customizar.",
+    tech: "Gatsby - MDX - Styled Components",
+    upload: true,
+    links: {
+      web: "https://mdx-blog-boilerplate.netlify.com/",
+      github: "https://github.com/adinjesuha/gatsby-blog",
+    },
+  },
+  {
+    index: 1,
+    image: "pw02.jpg",
+    title: "Blog Template",
+    description: "Blog template, de diseño minimalista y facil de customizar.",
+    tech: "Gatsby - Redux - Firebase & Firestore - Reactstrap",
+    upload: true,
+    links: {
+      web: "https://gatsby-dashboard-auth.netlify.com/",
+      github: "https://github.com/adinjesuha/auth-with-gatsby-fireebase",
+    },
+  },
+  {
+    index: 2,
+    image: "pw03.jpg",
+    title: "Gatsby Ecommerce",
+    description: "Ecommerce template contruido con Gatsby, Hasura (GraphQL API) y Stripe.",
+    tech: "Gatsby - Hasura - Stripe - Auth0",
+    upload: false,
+    links: {
+      web: null,
+      github: null,
+    },
+  }
+]
