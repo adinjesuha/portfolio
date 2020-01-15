@@ -16,7 +16,10 @@ const SectionContainer = styled.div`
   scroll-behavior: smooth;
   &:first-child{
     padding-top: 0;
-    min-height: calc(100vh - 94px);
+    min-height:calc(100vh - 94px);
+    @media ${device.tablet} {
+      min-height: 100vh;
+    }
   }
 `;
 
