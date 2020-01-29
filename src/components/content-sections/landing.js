@@ -68,7 +68,7 @@ const Landing = () => {
     <Section.Container>
       <Content>
         <h1>
-          <span>Hola, soy Adin Jesuha</span>
+          <span>Adin Jesuha</span>
           <span className="desktop-letters">
             <TextLoop>
               <span>Front-end dev</span>

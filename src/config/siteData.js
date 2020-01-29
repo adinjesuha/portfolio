@@ -33,7 +33,7 @@ export const works = [
     index: 2,
     title: "AgroBioTek Capacitaciones",
     image: 'wc03.jpg',
-    content: `Diseño y desarrollo de la plataforma de marketing para capacitaciones de agroBioTek en Centroamerica.`,
+    content: `Diseño y desarrollo de la plataforma de marketing para capacitaciones de agroBioTek en Centroamérica​.`,
     inverted: false,
     descriptionLink: 'Trabajo en desarrollo',
     href: null,
@@ -57,8 +57,8 @@ export const openSource = [
   {
     index: 1,
     image: "pw02.jpg",
-    title: "Blog Template",
-    description: "Blog template, de diseño minimalista y facil de customizar.",
+    title: "Dashboard app template",
+    description: "Dahsboard template, con servicio de autenticación de usuario.",
     tech: "Gatsby - Redux - Firebase & Firestore - Reactstrap",
     upload: true,
     links: {
