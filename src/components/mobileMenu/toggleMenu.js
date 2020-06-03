@@ -17,7 +17,7 @@ const MobileToggle = styled.button`
     height: 24px;
     &:before, &:after{
       content: "";
-      background-color: ${({theme}) => theme.toggleMenuButton};
+      background-color: black;
       display: block;
       width: 100%;
       height: 3px;

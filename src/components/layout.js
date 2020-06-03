@@ -1,36 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled, { ThemeProvider } from 'styled-components'
 
-import { lightTheme, darkTheme } from './theme'
-import { GlobalStyle } from './styles/globalStyles'
-import { useDarkMode } from './useDarkMode'
 import Header from './header'
 import Footer from './footer'
 
-const StyledPage = styled.div`
-  width: 100%;
-  margin: 0 auto;
-`
-
-const Layout = ({ children, isOnePage }) => {
-  const [theme, toggleTheme, componentMounted] = useDarkMode();
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
-  
-  if (!componentMounted) {
-    return <div />
-  };
-  return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyle />
-      <Header toggle={toggleTheme} isDark={theme === 'dark'} isOnePage={isOnePage}/>
-      <StyledPage>
-        <main>{children}</main>
-        <Footer />
-      </StyledPage>
-    </ThemeProvider>
-  )
-}
+const Layout = ({ children }) => (
+  <React.Fragment>
+    <Header />
+    <main>{children}</main>
+    <Footer />
+  </React.Fragment>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
