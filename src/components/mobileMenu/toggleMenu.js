@@ -10,6 +10,9 @@ const MobileToggle = styled.button`
   outline: 0 !important;
   padding: 10px;
   display: block;
+  position: fixed;
+  top: 18px;
+  right: 18px;
   i{
     position: relative;
     display: block;
@@ -17,7 +20,7 @@ const MobileToggle = styled.button`
     height: 24px;
     &:before, &:after{
       content: "";
-      background-color: black;
+      background-color: white;
       display: block;
       width: 100%;
       height: 3px;
