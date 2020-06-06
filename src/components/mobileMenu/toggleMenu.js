@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { device } from '../../utils/brakpoints'
-
 const MobileToggle = styled.button`
   z-index: 1001;
   background: 0 0;
@@ -10,9 +8,6 @@ const MobileToggle = styled.button`
   outline: 0 !important;
   padding: 10px;
   display: block;
-  position: fixed;
-  top: 18px;
-  right: 18px;
   i{
     position: relative;
     display: block;
@@ -31,7 +26,7 @@ const MobileToggle = styled.button`
       transition: all .3s ease-out;
     }
     &:before{
-      transform: ${({menuOpened}) => menuOpened ? null : 'translateY(6px) rotate(225deg)'};
+      transform: ${({menuOpened}) => menuOpened ? null : 'translateY(7px) rotate(225deg)'};
     }
     &:after{
       top: auto;
@@ -41,9 +36,6 @@ const MobileToggle = styled.button`
       transform: ${({menuOpened}) => menuOpened ? null : 'translateY(-6px) rotate(-225deg)'};
       transition: all .33s ease-in;
     }
-  }
-  @media ${device.tablet}{
-    display: none;
   }
 `
 

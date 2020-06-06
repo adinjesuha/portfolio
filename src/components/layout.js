@@ -36,10 +36,17 @@ const Layout = ({ children }) => {
         m="0 auto"
         maxW="1600px"
       >
-        <MobileToggle 
-          menuOpened={menuOpened} 
-          setMenuOpened={setMenuOpened}
-        />
+        <Box
+          display={{sm:"block", lg:"none"}}
+          pos="fixed"
+          top="18px"
+          right="18px"
+        >
+          <MobileToggle 
+            menuOpened={menuOpened} 
+            setMenuOpened={setMenuOpened}
+          />
+        </Box>
         <Header />
         <main>{children}</main>
         <Footer />
