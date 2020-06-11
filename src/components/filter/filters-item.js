@@ -21,7 +21,7 @@ const TabItem = ({tabId, label, handleActiveTab, activeTab, activeFilter}) => (
       transition="all .3s"
       fontWeight={{md: "300"}}
       opacity={{ md: activeTab === tabId ? "1" : "0.85 "}}
-      borderBottom={{md: activeTab === tabId ? "1px solid #f4f4f4" : "none"}}
+      borderBottom={{md: activeTab === tabId ? "1px solid #f4f4f4" : "1px solid transparent"}}
       p={{
         base: activeTab === tabId && !activeFilter ? "0 42px 0 54px" : activeFilter ? "0 62px" : "0",
         md: "0 0 3px"

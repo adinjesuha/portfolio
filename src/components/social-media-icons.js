@@ -5,6 +5,7 @@ import { PseudoBox } from '@chakra-ui/core'
 export default ({children}) => (
   <PseudoBox
     as={Link}
+    to="/"
     display="inline-block"
     fontSize="16px"
     p="0 12px"

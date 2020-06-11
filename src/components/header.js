@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
 
 import AvatarImage from '../images/avatar.png'
+import Logo from '../images/logo.svg'
 import SocialMedia from './social-media'
 
 const Header = () => (
@@ -11,11 +12,19 @@ const Header = () => (
       <Box
         as={Link}
         to="/"
-        display={{base:"none", lg:"flex"}}
+        display={{base:"none", md:"flex"}}
         alignItems="center"
       >
-        <Avatar name="Adin Jesuha" src={AvatarImage} size="md" mr="12px" bg="none"/>
-        <span>Adin Jesuha.</span>
+        <Avatar 
+          name="Adin Jesuha" 
+          src={AvatarImage} 
+          size="md" 
+          w="44px"
+          h="44px"
+          mr="12px" 
+          bg="none"
+        />
+        <img src={Logo} alt='Adin Jesuha' width="80px"/>
       </Box>
       <SocialMedia />
     </Flex>
@@ -23,8 +32,8 @@ const Header = () => (
       justifyContent="space-between"
     >
       <Box
-        maxW= {{base:"400px", lg:"600px"}}
-        mt={{base: "50vh", lg:"40vh", xl:"55px"}}
+        maxW= {{base:"400px", md: "600px", lg:"600px"}}
+        mt={{base: "40vh", md: "30vh", xl:"55px"}}
       >
         <Heading
           fontSize={["30px", "44px", null, "48px"]}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Avatar, PseudoBox } from '@chakra-ui/core'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
 
 import AvatarImage from '../../images/avatar.png'
 import CloseIcon from '../../images/mobile-filter-close.svg'
@@ -14,16 +13,16 @@ const tabs = [
   {index: 3, tabId: "about-me", label: "About Me"},
 ]
 
-const CustomPseudoBox = styled(PseudoBox)(css`
-@media (min-width: 48em){
-  &:after{
-    content: none;
+const CustomPseudoBox = styled(PseudoBox)`
+  @media (min-width: 48em){
+    &:after{
+      content: none;
+    }
+    &:before{
+      content: none;
+    }
   }
-  &:before{
-    content: none;
-  }
-}
-`)
+`
 
 const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab}) => (
   <Box
@@ -31,11 +30,11 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
     top="20px"
     m={{
       base: "0",
-      md: "100px 0 0",
-      lg: "130px 0 0"
+      md: "50px 0 0",
+      xl: "130px 0 0"
     }}
     p="0"
-    mb={{md: "-150px"}}
+    mb={{md: "-80px", lg:"-40px"}}
     pb={{md: "50px"}}
     backgroundColor={{
       base: "#f4f4f4",
@@ -53,7 +52,7 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
       base: "pointer",
       md: "auto"
     }}
-    z-index="2"
+    zIndex="2"
   >
     <Avatar 
       name="Adin Jesuha"

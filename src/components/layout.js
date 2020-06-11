@@ -41,6 +41,7 @@ const Layout = ({ children }) => {
           pos="fixed"
           top="18px"
           right="18px"
+          zIndex="docked"
         >
           <MobileToggle 
             menuOpened={menuOpened} 
