@@ -37,7 +37,7 @@ const Header = () => (
       >
         <Heading
           fontSize={["30px", "44px", null, "48px"]}
-          fontWeight="300"
+          fontWeight="500"
         >
           Designing websites / apps for companies like Google
         </Heading>
@@ -46,8 +46,6 @@ const Header = () => (
           opacity="0.85"
           letterSpacing= ".5px"
           lineHeight="1.5em"
-          fontSize="16"
-          fontWeight="300"
         >If you’re looking for a freelance designer to help bring an idea to life and you’re on a tight timeline—let’s jam.</Text>
       </Box>
       <Box
@@ -55,7 +53,6 @@ const Header = () => (
         letterSpacing="0.5px"
         textAlign="right"
         fontSize="22px"
-        fontWeight="lighter"
         mt="60px"
       >
         <Box
@@ -103,7 +100,6 @@ const Header = () => (
         px="30px"
         mr="30px"
         textDecoration="none"
-        fontWeight="300"
         color="#222222"
         lineHeight="50px"
         transition= "background .3s,color .3s"
@@ -117,14 +113,13 @@ const Header = () => (
         href="#"
         display="inline-block"
         textDecoration="none"
-        fontWeight="300"
         color="#f4f4f4"
         lineHeight="50px"
       >(504) 9579-8520</Box>
     </Box>
     <PseudoBox
       mt="20px"
-      fontSize="12px"
+      fontSize="xs"
       _before={{
         content: '""',
         background:"#95cd71",
@@ -138,7 +133,6 @@ const Header = () => (
       <Box 
         as="span"
         opacity="0.85"
-        fontWeight="lighter"
       >Available for Freelance / Social Promotion / Speaking Engagements</Box>
     </PseudoBox>
   </React.Fragment>

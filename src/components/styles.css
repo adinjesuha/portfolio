@@ -1,0 +1,17 @@
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  color: #f4f4f4;
+  background: #222222;
+  position: relative;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.isScrolling {
+  opacity: 0.08;
+}

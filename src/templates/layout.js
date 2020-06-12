@@ -98,7 +98,7 @@ export default ({ children, pageContext }) => (
         <Heading 
           as="h1"
           mb="60px"
-          fontWeight="300"
+          fontWeight="400"
           fontSize={{base: "3xl", lg: '4xl'}}
         >
           {pageContext.frontmatter.title}
@@ -113,13 +113,12 @@ export default ({ children, pageContext }) => (
             <Heading
               as="h2"
               fontSize={{base: "xl", md: "2xl"}}
-              fontWeight="300"
+              fontWeight="400"
             >The Project Overview</Heading>
             <Text
               fontSize={{lg: "20px"}}
-              fontWeight="lighter"
               opacity="0.6"
-              mt="20px"
+              mt="15px"
             >{pageContext.frontmatter.description}</Text>
           </Box>
           <Box
@@ -133,13 +132,12 @@ export default ({ children, pageContext }) => (
               <Heading 
                 as="h4"
                 fontSize={{base: "xl", md: "2xl"}}
-                fontWeight="300"
+                fontWeight="400"
                 >Role:</Heading>
                 <Text
                 fontSize={{lg:"20px"}}
-                fontWeight="lighter"
                 color="#9a9a9a"
-                mt="10px"
+                mt="15px"
                 lineHeight="1.8em"
                 whiteSpace="pre-line"
               >Designer</Text>
@@ -150,13 +148,12 @@ export default ({ children, pageContext }) => (
               <Heading 
                 as="h4"
                 fontSize={{base: "xl", md: "2xl"}}
-                fontWeight="300"
+                fontWeight="400"
               >Deliverables:</Heading>
               <Text
                 fontSize={{lg:"20px"}}
-                fontWeight="lighter"
                 color="#9a9a9a"
-                mt="10px"
+                mt="15px"
                 lineHeight="1.8em"
                 whiteSpace="pre-line"
               >PSD files</Text>

@@ -101,13 +101,12 @@ export default () => {
                   willChange="opacity"
                 >
                   <Heading
-                    fontWeight="300"
+                    fontWeight="500"
                     fontSize={["xl", "1xl", "2xl"]}
                     mt="1.3em"
                     mb="1em"
                   >{data.node.frontmatter.title}</Heading>
                   <Text
-                    fontWeight="lighter"
                     fontSize={["md", "lg", null]}
                   >{data.node.frontmatter.description}</Text>
                 </Box>
