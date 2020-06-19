@@ -1,141 +1,148 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
+import ReactRotatingText from 'react-rotating-text'
 
 import AvatarImage from '../images/avatar.png'
 import Logo from '../images/logo.svg'
 import SocialMedia from './social-media'
 
-const Header = () => (
-  <React.Fragment>
-    <Flex justifyContent="space-between">
-      <Box
-        as={Link}
-        to="/"
-        display={{base:"none", md:"flex"}}
-        alignItems="center"
-      >
-        <Avatar 
-          name="Adin Jesuha" 
-          src={AvatarImage} 
-          size="md" 
-          w="44px"
-          h="44px"
-          mr="12px" 
-          bg="none"
-        />
-        <img src={Logo} alt='Adin Jesuha' width="80px"/>
-      </Box>
-      <SocialMedia />
-    </Flex>
-    <Flex
-      justifyContent="space-between"
-    >
-      <Box
-        maxW= {{base:"400px", md: "600px", lg:"600px"}}
-        mt={{base: "40vh", md: "30vh", xl:"55px"}}
-      >
-        <Heading
-          fontSize={["30px", "44px", null, "48px"]}
-          fontWeight="500"
+const Header = () => {
+  const [ date, setDate ] = useState({
+    hours: new Date().getHours().toLocaleString(),
+    minutes: new Date().getMinutes().toLocaleString(),
+  })
+  return (
+    <React.Fragment>
+      <Flex justifyContent="space-between">
+        <Box
+          as={Link}
+          to="/"
+          display={{base:"none", md:"flex"}}
+          alignItems="center"
         >
-          Designing websites / apps for companies like Google
-        </Heading>
-        <Text
-          mt="25px"
-          opacity="0.85"
-          letterSpacing= ".5px"
-          lineHeight="1.5em"
-        >If you’re looking for a freelance designer to help bring an idea to life and you’re on a tight timeline—let’s jam.</Text>
-      </Box>
+          <Avatar 
+            name="Adin Jesuha" 
+            src={AvatarImage} 
+            size="md" 
+            w="44px"
+            h="44px"
+            mr="12px" 
+            bg="none"
+          />
+          <img src={Logo} alt='Adin Jesuha' width="125px"/>
+        </Box>
+        <SocialMedia />
+      </Flex>
+      <Flex
+        justifyContent="space-between"
+      >
+        <Box
+          maxW= {["400px", "500px", "550px", "600px"]}
+          mt={{base: "40vh", md: "30vh", xl:"55px"}}
+        >
+          <Text 
+            fontSize="xs"
+            letterSpacing="0.1px"
+            fontWeight="500"
+            mb="0.48rem"
+            textTransform="uppercase"
+          >
+            i build {" "}
+            <ReactRotatingText items={['websites', 'apps', 'user interfaces', 'Prototypes']} />
+          </Text>
+          <Heading
+            fontSize={["30px", "44px", null, "48px"]}
+            fontWeight="500"
+          >I’m an entrepreneur JAMStack developer & UI designer.</Heading>
+          <Text
+            mt="25px"
+            opacity="0.85"
+            letterSpacing= ".5px"
+            lineHeight="1.5em"
+          >I help companies simplify their digital experiences by creating high-performance products, serverless and progressive web applications.</Text>
+        </Box>
+        <Box
+          display={{base:"none", lg:"block"}}
+          letterSpacing="0.5px"
+          textAlign="right"
+          fontSize="22px"
+          mt="60px"
+        >
+          <Box
+            as="span"
+            display="block"
+            opacity=".85"
+            fontSize="16px"
+            lineHeight="2.25em"
+          >
+            Current Location:
+          </Box>
+          <Box
+            as="span"
+          >
+            Tegucigalpa, Honduras
+          </Box>
+          <Box
+            as="span"
+            pl=".35em"
+          >{date.hours}:{date.minutes} CST</Box>
+          <PseudoBox
+            // mt="10px"
+            fontSize="md"
+            _before={{
+              content: '""',
+              background:"#95cd71",
+              display: "inline-block",
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              marginRight: "10px",
+            }}
+          >
+            <Box
+              as="span"
+              opacity=".75"
+              lineHeight="2.25em"
+            >
+            Available for Freelance (In office till 6)
+            </Box>
+          </PseudoBox>
+        </Box>
+      </Flex>
       <Box
         display={{base:"none", lg:"block"}}
-        letterSpacing="0.5px"
-        textAlign="right"
-        fontSize="22px"
-        mt="60px"
+        mt="40px"
       >
+        <PseudoBox
+          as="a"
+          href="#"
+          target="_blank"
+          display="inline-block"
+          backgroundColor="#f4f4f4"
+          borderRadius="25px"
+          px="30px"
+          mr="30px"
+          textDecoration="none"
+          color="#222222"
+          lineHeight="50px"
+          transition= "background .3s,color .3s"
+          _hover={{
+            background: "#222222",
+            color: "#f4f4f4"
+          }}
+        >hey@adinjesuha.com</PseudoBox>
         <Box
-          as="span"
-          display="block"
-          opacity=".85"
-          fontSize="16px"
-          lineHeight="2.25em"
-        >
-          Current Location:
-        </Box>
-        <Box
-          as="span"
-        >
-          Tegucigalpa, Honduras
-        </Box>
-        <Box
-          as="span"
-          pl=".35em"
-        >
-          11:39 AM CDT 
-        </Box>
-        <Box
-          as="span"
-          display="block"
-          opacity=".85"
-          fontSize="16px"
-          lineHeight="2.25em"
-        >
-          (in office till 6)
-        </Box>
+          as="a"
+          href="#"
+          display="inline-block"
+          textDecoration="none"
+          color="#f4f4f4"
+          lineHeight="50px"
+        >Text (504) 9579-8520</Box>
       </Box>
-    </Flex>
-    <Box
-      display={{base:"none", lg:"block"}}
-      mt="40px"
-    >
-      <PseudoBox
-        as="a"
-        href="#"
-        target="_blank"
-        display="inline-block"
-        backgroundColor="#f4f4f4"
-        borderRadius="25px"
-        px="30px"
-        mr="30px"
-        textDecoration="none"
-        color="#222222"
-        lineHeight="50px"
-        transition= "background .3s,color .3s"
-        _hover={{
-          background: "#222222",
-          color: "#f4f4f4"
-        }}
-      >hey@adinjesuha.com</PseudoBox>
-      <Box
-        as="a"
-        href="#"
-        display="inline-block"
-        textDecoration="none"
-        color="#f4f4f4"
-        lineHeight="50px"
-      >(504) 9579-8520</Box>
-    </Box>
-    <PseudoBox
-      mt="20px"
-      fontSize="xs"
-      _before={{
-        content: '""',
-        background:"#95cd71",
-        display: "inline-block",
-        width: "10px",
-        height: "10px",
-        borderRadius: "50%",
-        marginRight: "10px",
-      }}
-    >
-      <Box 
-        as="span"
-        opacity="0.85"
-      >Available for Freelance / Social Promotion / Speaking Engagements</Box>
-    </PseudoBox>
-  </React.Fragment>
-)
+    </React.Fragment>
+  )
+}
 
 export default Header

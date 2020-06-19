@@ -12,6 +12,207 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*:::::::::::::: Start Scrolling Styles ::::::::::::::*/
+
 .isScrolling {
   opacity: 0.08;
 }
+
+/*:::::::::::::: End Scrolling Styles ::::::::::::::*/
+
+/*:::::::::::::: Start Mobile Nav Styles ::::::::::::::*/
+
+@keyframes showNavigation {
+  0% {
+    transform: translate3d(0, -40px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.showNav {
+  animation: showNavigation 0.9s ease forwards;
+  visibility: visible;
+}
+
+/*:::::::::::::: End Mobile Nav Styles ::::::::::::::*/
+
+/*:::::::::::::: Start React Rotating Styles ::::::::::::::*/
+
+@keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
+    infinite;
+}
+/*:::::::::::::: End React Rotating Styles ::::::::::::::*/
+
+/*:::::::::::::: Start Slider Styles ::::::::::::::*/
+
+.slider-component {
+  position: relative;
+
+  /* Start Overflow right */
+
+  overflow: auto;
+  padding-bottom: 3rem !important;
+  margin-bottom: -3rem !important;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 2rem 0;
+
+  /* End Overflow right */
+}
+.slider-component::-webkit-scrollbar {
+  display: none;
+}
+.slider-component:before,
+.slider-component:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 1;
+  position: none;
+}
+.slider-component:before {
+  transform: translate(-100%);
+}
+.slider-component:after {
+  transform: translate(100%);
+}
+
+.slider-wrapper {
+  display: flex;
+  position: relative;
+  transition: transform 400ms ease;
+}
+
+.slider-item {
+  flex-shrink: 0;
+  padding-right: 1.2rem;
+  box-sizing: content-box;
+  width: 100%;
+  max-width: 85%;
+  transition: opacity 280ms ease 0s;
+}
+.slider-item:first-child {
+  padding-left: 1.2rem;
+}
+
+.controls {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: none;
+}
+.controls button {
+  content: "";
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 10px;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border-style: none;
+  transition: opacity 120ms ease 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+.controls button:focus {
+  outline: none;
+}
+
+.controls button:active {
+  border-style: none;
+}
+
+.controls button:first-child {
+  left: 0px;
+  transform: translateX(-50%);
+  background-image: url("data:image/svg+xml, <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill='%23000' fill-rule='evenodd' d='M7.5347 14.9062L8.84633 13.5946L3.65563 8.39462L14.9766 8.39462L14.9766 6.53416L3.65563 6.53416L8.84633 1.33416L7.5347 0.022528L0.0928418 7.46439L7.5347 14.9062Z' clip-rule='evenodd'/></svg>");
+}
+
+.controls button:last-child {
+  right: 0px;
+  transform: translateX(50%);
+  background-image: url("data:image/svg+xml, <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M7.4653 0.09375L6.15367 1.40538L11.3444 6.60538H0.0234375V8.46584H11.3444L6.15367 13.6658L7.4653 14.9775L14.9072 7.53561L7.4653 0.09375Z' fill='black'/></svg>");
+}
+
+[data-show-previous="true"].controls button:first-child,
+[data-show-next="true"].controls button:last-child {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (min-width: 40em) {
+  .slider-component {
+    margin: initial;
+  }
+  .slider-item {
+    padding-right: 2rem;
+    max-width: calc(33.3333% - 1.3333rem);
+  }
+  .slider-item:first-child {
+    padding-left: 0 !important;
+  }
+}
+
+@media (min-width: 48em) {
+  .slider-component {
+    overflow: initial;
+  }
+  .slider-component[data-current-index="0"] > div > :nth-child(n + 4) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="1"] > div > :nth-child(n + 5),
+  .slider-component[data-current-index="1"] > div > :nth-child(-n + 1) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="2"] > div > :nth-child(n + 6),
+  .slider-component[data-current-index="2"] > div > :nth-child(-n + 2) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="3"] > div > :nth-child(n + 7),
+  .slider-component[data-current-index="3"] > div > :nth-child(-n + 3) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="4"] > div > :nth-child(n + 8),
+  .slider-component[data-current-index="4"] > div > :nth-child(-n + 4) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="5"] > div > :nth-child(n + 9),
+  .slider-component[data-current-index="5"] > div > :nth-child(-n + 5) {
+    opacity: 0.3;
+  }
+  .slider-component[data-current-index="6"] > div > :nth-child(-n + 6) {
+    opacity: 0.3;
+  }
+  .controls {
+    display: block;
+  }
+}
+
+/*:::::::::::::: End Slider Styles ::::::::::::::*/

@@ -1,57 +1,13 @@
 import React from "react"
-import { Link } from 'gatsby'
 import { MDXProvider,  } from "@mdx-js/react"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
-import { Box, Heading, Text, Flex } from '@chakra-ui/core'
-import styled from '@emotion/styled'
+import { Box, Heading, Flex, Text, PseudoBox } from '@chakra-ui/core'
 
+import { Close, Item, Logo } from './UI'
+import { components } from './styled-mdx-components'
 import Image from '../components/image'
-import Logo from '../images/wikibuy.png'
-
-const Close = styled(Link)`
-  display: block;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  font-size: 30px;
-  border-radius: 50px;
-  background: rgba(0,0,0,.15);
-  border: 2px solid rgba(255,255,255,.5);
-  z-index: 10;
-  cursor: pointer;
-  transition: background .3s,color .3s,border .3s;
-  &::before, &::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%,0) rotate(45deg);
-    width: 65%;
-    height: 2px;
-    background: #fff;
-    border-radius: 25px;
-    transition: background .3s;
-  }
-  &::after{
-    transform: translate3d(-50%,-50%,0) rotate(-45deg);
-  }
-  &:hover{
-    background: #fff;
-    color: #000;
-    border-color: rgba(255,255,255,1);
-    &::after {
-      background: #000;
-    }
-    &::before{
-      background: #000;
-    }
-  }
-`
+import Slider from "../components/slider"
+import { slideData } from "../fakeData/slides"
 
 export default ({ children, pageContext }) => (
   <ModalRoutingContext.Consumer>
@@ -74,27 +30,10 @@ export default ({ children, pageContext }) => (
             noScroll: true,
           }}
         />
-        <Box
-          mb="25px"
-        >
-          <Box 
-            w="44px"
-            h="44px"
-            borderRadius="50%"
-            overflow="hidden"
-            display="inline-block"
-            verticalAlign="top"
-          >
-            <img src={Logo} width="100%" hight="100%" alt="logo"/>
-          </Box>
-          <Box 
-            as="span"
-            display="inline-block"
-            verticaAlign="top"
-            pl="10px"
-            lineHeight="44px"
-          >Wibuky</Box>
-        </Box>
+        <Logo 
+          logo={pageContext.frontmatter.logo}
+          logoDescription={pageContext.frontmatter.logoDescription}
+        />
         <Heading 
           as="h1"
           mb="60px"
@@ -114,64 +53,90 @@ export default ({ children, pageContext }) => (
               as="h2"
               fontSize={{base: "xl", md: "2xl"}}
               fontWeight="400"
-            >The Project Overview</Heading>
+            >About the client</Heading>
             <Text
               fontSize={{lg: "20px"}}
-              opacity="0.6"
               mt="15px"
-            >{pageContext.frontmatter.description}</Text>
+              color="#979797"
+            >
+              {pageContext.frontmatter.description}</Text>
           </Box>
           <Box
             w={{base: "100%", md:"280px"}}
             pl={{md:"30px"}}
             textAlign={{base: "left", md: "right"}}
           >
-            <Box
-              mb="40px"
-            >
-              <Heading 
-                as="h4"
-                fontSize={{base: "xl", md: "2xl"}}
-                fontWeight="400"
-                >Role:</Heading>
-                <Text
-                fontSize={{lg:"20px"}}
-                color="#9a9a9a"
-                mt="15px"
-                lineHeight="1.8em"
-                whiteSpace="pre-line"
-              >Designer</Text>
-            </Box>
-            <Box
-              mb="40px"
-            >
-              <Heading 
-                as="h4"
-                fontSize={{base: "xl", md: "2xl"}}
-                fontWeight="400"
-              >Deliverables:</Heading>
-              <Text
-                fontSize={{lg:"20px"}}
-                color="#9a9a9a"
-                mt="15px"
-                lineHeight="1.8em"
-                whiteSpace="pre-line"
-              >PSD files</Text>
-            </Box>
+            <Item 
+              heading="Role"
+              options={pageContext.frontmatter.role}
+            />
+            <Item 
+              heading="Deliverables"
+              options={pageContext.frontmatter.deliverables}
+            />
           </Box>
         </Flex>
-        <Box 
-          w="calc(100% + 16vw)"
-          maxW="none"
-          h="auto"
-          m="0 0 50px calc(-1 * 8vw)"
-          mt={{base:"50px", md: "0"}}
-          pos="relative"
+        {pageContext.frontmatter.carouselImages ? (
+          <Slider slideData={slideData}/>
+        ):(
+          <Box 
+            w="calc(100% + 16vw)"
+            maxW="none"
+            h="auto"
+            m="0 0 50px calc(-1 * 8vw)"
+            mt={{base:"50px", md: "0"}}
+            pos="relative"
+          >
+            <Image imgName={pageContext.frontmatter.img}/>
+          </Box>
+        )}
+        <Flex
+          flexDir={{base: "column", md:"row"}}
         >
-          <Image imgName={pageContext.frontmatter.img}/>
-        </Box>
-        <MDXProvider>{children}</MDXProvider>
-        {console.log(pageContext)}
+          <Box
+            order={{base: "2", md:"initial"}}
+            w={{base: "100%", md:"calc(100% - 280px)"}}
+          >
+            <MDXProvider components={components}>{children}</MDXProvider>
+          </Box>
+          <Box
+            w={{base: "100%", md:"280px"}}
+            pl={{md:"30px"}}
+            textAlign={{base: "left", md: "right"}}
+          >
+            <Heading 
+              as="h4"
+              fontSize={{base: "xl", md: "2xl"}}
+              fontWeight="400"
+              mb="15px"
+            >Links</Heading>
+            <PseudoBox 
+              as={pageContext.frontmatter.web !== "Comming soon" ? "a" : "span"}
+              href={pageContext.frontmatter.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              color={pageContext.frontmatter.web !== "Comming soon" ? "#FF2848" : "#9a9a9a"}
+              fontSize={{lg: "20px"}}
+              mb="20px"
+              display="inline-block"
+            >
+              {pageContext.frontmatter.web}
+            </PseudoBox>
+            <Heading 
+              as="h4"
+              fontSize={{base: "xl", md: "2xl"}}
+              fontWeight="400"
+              mb="15px"
+            >Stack</Heading>
+            <Text
+              fontSize={{lg:"20px"}}
+              color="#9a9a9a"
+              mt="10px"
+              whiteSpace="pre-line"
+              textTransform="capitalize"
+            >{pageContext.frontmatter.stack.join(', ')}</Text>
+          </Box>
+        </Flex>
       </Box>
     )}
   </ModalRoutingContext.Consumer>

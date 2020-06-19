@@ -26,14 +26,14 @@ const MobileToggle = styled.button`
       transition: all .3s ease-out;
     }
     &:before{
-      transform: ${({menuOpened}) => menuOpened ? null : 'translateY(7px) rotate(225deg)'};
+      transform: ${({menuOpened}) => !menuOpened ? null : 'translateY(7px) rotate(225deg)'};
     }
     &:after{
       top: auto;
       left: 0;
       right: 0;
       bottom: 4px;
-      transform: ${({menuOpened}) => menuOpened ? null : 'translateY(-6px) rotate(-225deg)'};
+      transform: ${({menuOpened}) => !menuOpened ? null : 'translateY(-6px) rotate(-225deg)'};
       transition: all .33s ease-in;
     }
   }

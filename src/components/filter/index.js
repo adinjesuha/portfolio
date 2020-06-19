@@ -1,26 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from "gatsby"
-import { Box, Grid, Heading, Text } from '@chakra-ui/core'
-import styled from '@emotion/styled'
+import { Box, SimpleGrid, Heading, Text } from '@chakra-ui/core'
 
 
 import Image from '../image'
 import FilterTab from './filters-tab'
-
-const CustomBox = styled(Box)`
-  @media (min-width: 48em){
-    grid-row-end: span 100;
-  }
-  @media (min-width: 62em){
-    grid-row-end: ${props => 
-      props.index === 0 ? 'span 100' : 
-      props.index === 1 ? 'span 112' : 
-      props.index === 2 ? 'span 101' : 'span 111'
-    };
-  }
-
-`
 
 export default () => {
 
@@ -34,10 +19,10 @@ export default () => {
           node{
             frontmatter{
               title
-              description
               category
               path
               img
+              role
             }
           }
         }
@@ -67,21 +52,18 @@ export default () => {
         activeTab={activeTab}
         activeFilter={activeFilter}
       />
-      <Grid 
-        columnGap="3rem"
-        gridTemplateColumns={{baser: "1fr", md: "1fr 1fr"}}
-        marginTop={{base: "2.2em", md: "2.9em", lg: ".4em"}}
+      <SimpleGrid 
+        columns={[1, null, 2]} 
+        spacing={[2, null, 8, 10]}
       >
-        {filteredData.map((data, index) => (
-          <CustomBox
-            index={index}
-          >
+        {filteredData.map((data, index) => {
+          return (
             <Box
+              key={index}
               as="article"
-              mb="3em"
+              mb="1.5em"
             >
               <Link
-                key={index}
                 to={data.node.frontmatter.path}
                 state={{
                   modal: true
@@ -108,13 +90,15 @@ export default () => {
                   >{data.node.frontmatter.title}</Heading>
                   <Text
                     fontSize={["md", "lg", null]}
-                  >{data.node.frontmatter.description}</Text>
+                  >
+                  {data.node.frontmatter.role.join(', ')}
+                  </Text>
                 </Box>
               </Link>
             </Box>
-          </CustomBox>
-        ))}
-      </Grid>
+          )
+        })}
+      </SimpleGrid>
     </React.Fragment>
   )
 }

@@ -18,7 +18,7 @@ module.exports = {
               right: 0,
               bottom: 0,
               backgroundColor: 'rgba(33, 33, 33, 0.5)',
-              zIndex: 1000,
+              zIndex: 1200,
             },
             content: {
               position: 'absolute',
@@ -30,6 +30,7 @@ module.exports = {
               right: 0,
               left: 0,
               overflow: 'auto',
+              overflowX: 'hidden',
               WebkitOverflowScrolling: 'touch',
             },
           },

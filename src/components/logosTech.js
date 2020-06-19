@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Image from './image'
-import { logos } from '../config/siteData'
 
 const ImageBlock = styled.div`
   display: flex;
@@ -10,7 +9,6 @@ const ImageBlock = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 60rem;
   .gatsby-image-wrapper{
     width: 100%;
     margin: 0 -.1rem 1.55rem;
@@ -41,8 +39,8 @@ const ImageBlock = styled.div`
   }
 `
 
-const Technologies = () => (
-  <ImageBlock>{logos.map(({name, index}) => <Image imgName={name} key={index}/>)}</ImageBlock>
+const StackTechnologies = ({options}) => (
+  <ImageBlock>{options.map(({name, index}) => <Image imgName={name} key={index}/>)}</ImageBlock>
 )
 
-export default Technologies
+export default StackTechnologies
