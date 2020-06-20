@@ -77,8 +77,10 @@ export default ({ children, pageContext }) => (
           </Box>
         </Flex>
         {pageContext.frontmatter.carouselImages ? (
-          <Slider slideData={slideData}/>
-        ):(
+          <Box mb="40px">
+            <Slider slideData={pageContext.frontmatter.carouselImages}/>
+          </Box>
+          ):(
           <Box 
             w="calc(100% + 16vw)"
             maxW="none"

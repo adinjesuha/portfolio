@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from "react"
+import Image from '../image'
 
-const Card = ({slide}) => {
-  return (
-    <h1>Hello Item</h1>
-  )
-}
+const Card = ({slide}) => (
+  <Image imgName={slide} className="item-content"/>
+)
 
 // =========================
 // Controls
@@ -55,7 +54,7 @@ const SliderEl = ({ slides, current }) => {
     <div className="slider-wrapper" style={wrapperTransform}>
       {slides.map(slide => (
         <div className="slider-item" ref={refElem} key={slide.index}>
-          <Card {...slide} />
+          <Card slide={slide} />
         </div>
       ))}
     </div>
@@ -82,7 +81,7 @@ const Slide = ({ slideData }) => {
   }
 
   const showPrevious = currentSlide !== 0
-  const showNext = currentSlide !== slides.length - 3
+  const showNext = currentSlide !== slides.length - 1
 
   return (
     <div className="slider-component" data-current-index={currentSlide}>
