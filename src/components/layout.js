@@ -65,7 +65,7 @@ const Layout = ({ children }) => {
           zIndex: "-1",
         }}
       >
-        <Image imgName="bg-page.png"/>
+        <Image imgName="bg-page.jpg"/>
       </PseudoBox>
       <Box
         p={{base:"15px 15px 20px", lg:"30px 40px 60px", xl: "60px 80px 120px"}}
