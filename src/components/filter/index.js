@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
+import React, { useState, useRef, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-import { Box, SimpleGrid, Heading, Text } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/core'
 
-
-import Image from '../image'
 import FilterTab from './filters-tab'
+import FilterTabFixed from './filters-tab-fixed'
+import Item from '../item'
+import MailTo from '../mail-to'
 
 export default () => {
 
   const [ activeFilter, setActiveFilter ] = useState(false)
   const [ activeTab, setActiveTab ] = useState("all");
+  const [ elementAppear, setElementAppear ] = useState(false)
 
   const data = useStaticQuery(graphql`
     query allMDX {
@@ -23,12 +24,30 @@ export default () => {
               path
               img
               role
+              logo
+              logoDescription
             }
           }
         }
       }
     }
   `)
+
+  let refElem = useRef(0)
+
+  useEffect(() => {
+    function handleAppear() {
+      if(refElem.current.getBoundingClientRect().top < -300) {
+        setElementAppear(true)
+      }else {
+        setElementAppear(false)
+      }
+    }
+    window.addEventListener("scroll", handleAppear)
+    return () => {
+      window.removeEventListener("scroll", handleAppear)
+    }
+  }, [])
 
   const handleActiveTab = e => {
     setActiveTab(e.target.id)
@@ -52,53 +71,26 @@ export default () => {
         activeTab={activeTab}
         activeFilter={activeFilter}
       />
-      <SimpleGrid 
-        columns={[1, null, 2]} 
-        spacing={[2, null, 8, 10]}
+      <FilterTabFixed
+        handleActiveTab={handleActiveTab}
+        handleActiveFilter={handleActiveFilter}
+        activeTab={activeTab}
+        activeFilter={activeFilter}
+        translateEl={elementAppear}
+      />
+      <MailTo translateEl={elementAppear}/>
+      <Box 
+        ref={refElem}
+        className="masonry-grid"
+        p={{base:"50px 0", lg:"150px 0"}}
       >
-        {filteredData.map((data, index) => {
-          return (
-            <Box
-              key={index}
-              as="article"
-              mb="1.5em"
-            >
-              <Link
-                to={data.node.frontmatter.path}
-                state={{
-                  modal: true
-                }}
-                style={{
-                  outline: "0"
-                }}
-              >
-                <Box
-                  position="relative"
-                  overflow="hidden"
-                >
-                  <Image imgName={data.node.frontmatter.img}/>
-                </Box>
-                <Box
-                  transition="opacity 200ms ease-in-out 0s"
-                  willChange="opacity"
-                >
-                  <Heading
-                    fontWeight="500"
-                    fontSize={["xl", "1xl", "2xl"]}
-                    mt="1.3em"
-                    mb="1em"
-                  >{data.node.frontmatter.title}</Heading>
-                  <Text
-                    fontSize={["md", "lg", null]}
-                  >
-                  {data.node.frontmatter.role.join(', ')}
-                  </Text>
-                </Box>
-              </Link>
-            </Box>
-          )
-        })}
-      </SimpleGrid>
+      {filteredData.map((data, index) => (
+        <Item
+          data={data}
+          key={index}
+        />
+      ))}
+      </Box>
     </React.Fragment>
   )
 }

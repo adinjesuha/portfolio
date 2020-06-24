@@ -5,7 +5,6 @@ import ReactRotatingText from 'react-rotating-text'
 
 import AvatarImage from '../images/avatar.png'
 import Logo from '../images/logo.svg'
-import SocialMedia from './social-media'
 
 const Header = () => {
   const [ date, setDate ] = useState({
@@ -30,16 +29,32 @@ const Header = () => {
             mr="12px" 
             bg="none"
           />
-          <img src={Logo} alt='Adin Jesuha' width="125px"/>
+          <img src={Logo} alt='Adin Jesuha' width="125px" />
         </Box>
-        <SocialMedia />
+        <PseudoBox
+          as="a"
+          href="#"
+          target="_blank"
+          display={{base:"none", lg:"inline-block"}}
+          backgroundColor="#f4f4f4"
+          borderRadius="25px"
+          px="30px"
+          textDecoration="none"
+          color="#222222"
+          lineHeight="50px"
+          transition= "background .3s,color .3s"
+          _hover={{
+            background: "#222222",
+            color: "#f4f4f4"
+          }}
+        >hey@adinjesuha.com</PseudoBox>
       </Flex>
       <Flex
         justifyContent="space-between"
       >
         <Box
           maxW= {["400px", "500px", "550px", "600px"]}
-          mt={{base: "40vh", md: "30vh", xl:"55px"}}
+          mt={{base: "40vh", xl:"55px"}}
         >
           <Text 
             fontSize="xs"
@@ -49,12 +64,12 @@ const Header = () => {
             textTransform="uppercase"
           >
             i build {" "}
-            <ReactRotatingText items={['websites', 'apps', 'user interfaces', 'Prototypes']} />
+            <ReactRotatingText items={['websites', 'webapps', 'user interfaces', 'Prototypes']} />
           </Text>
           <Heading
             fontSize={["30px", "44px", null, "48px"]}
             fontWeight="500"
-          >I’m an entrepreneur JAMStack developer & UI designer.</Heading>
+          >I’m an entrepreneur JAMStack developer</Heading>
           <Text
             mt="25px"
             opacity="0.85"
@@ -88,7 +103,6 @@ const Header = () => {
             pl=".35em"
           >{date.hours}:{date.minutes} CST</Box>
           <PseudoBox
-            // mt="10px"
             fontSize="md"
             _before={{
               content: '""',

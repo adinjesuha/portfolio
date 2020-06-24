@@ -1,13 +1,13 @@
 import React from "react"
 import { MDXProvider,  } from "@mdx-js/react"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
-import { Box, Heading, Flex, Text, PseudoBox } from '@chakra-ui/core'
+import { Box, Heading, Flex, Text } from '@chakra-ui/core'
 
-import { Close, Item, Logo } from './UI'
-import { components } from './styled-mdx-components'
+import { Close, Item } from './UI'
+import { components } from './styled-mdx'
+import LogoClient from '../components/logo-client'
 import Image from '../components/image'
 import Slider from "../components/slider"
-import { slideData } from "../fakeData/slides"
 
 export default ({ children, pageContext }) => (
   <ModalRoutingContext.Consumer>
@@ -16,7 +16,7 @@ export default ({ children, pageContext }) => (
         m="0 auto"
         maxW="750px"
         p="6vw 8vw"
-        bg="#222222"
+        bg="var(--bg-color)"
         color="#f4f4f4"
         boxShadow="0 0 45px rgba(0,0,0,.15)"
         transition="opacity 1s"
@@ -30,7 +30,7 @@ export default ({ children, pageContext }) => (
             noScroll: true,
           }}
         />
-        <Logo 
+        <LogoClient 
           logo={pageContext.frontmatter.logo}
           logoDescription={pageContext.frontmatter.logoDescription}
         />
@@ -92,53 +92,9 @@ export default ({ children, pageContext }) => (
             <Image imgName={pageContext.frontmatter.img}/>
           </Box>
         )}
-        <Flex
-          flexDir={{base: "column", md:"row"}}
-        >
-          <Box
-            order={{base: "2", md:"initial"}}
-            w={{base: "100%", md:"calc(100% - 280px)"}}
-          >
-            <MDXProvider components={components}>{children}</MDXProvider>
-          </Box>
-          <Box
-            w={{base: "100%", md:"280px"}}
-            pl={{md:"30px"}}
-            textAlign={{base: "left", md: "right"}}
-          >
-            <Heading 
-              as="h4"
-              fontSize={{base: "xl", md: "2xl"}}
-              fontWeight="400"
-              mb="15px"
-            >Links</Heading>
-            <PseudoBox 
-              as={pageContext.frontmatter.web !== "Comming soon" ? "a" : "span"}
-              href={pageContext.frontmatter.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              color={pageContext.frontmatter.web !== "Comming soon" ? "#FF2848" : "#9a9a9a"}
-              fontSize={{lg: "20px"}}
-              mb="20px"
-              display="inline-block"
-            >
-              {pageContext.frontmatter.web}
-            </PseudoBox>
-            <Heading 
-              as="h4"
-              fontSize={{base: "xl", md: "2xl"}}
-              fontWeight="400"
-              mb="15px"
-            >Stack</Heading>
-            <Text
-              fontSize={{lg:"20px"}}
-              color="#9a9a9a"
-              mt="10px"
-              whiteSpace="pre-line"
-              textTransform="capitalize"
-            >{pageContext.frontmatter.stack.join(', ')}</Text>
-          </Box>
-        </Flex>
+        <Box w="100%">
+          <MDXProvider components={components}>{children}</MDXProvider>
+        </Box>
       </Box>
     )}
   </ModalRoutingContext.Consumer>

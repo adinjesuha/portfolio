@@ -9,7 +9,7 @@ const Image = ({ imgName, className }) => {
         edges {
           node {
             fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid
               originalName
             }
           }

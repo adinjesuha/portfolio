@@ -1,12 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { PseudoBox, Box, Flex } from '@chakra-ui/core'
 
-import { useEventListener } from '../hooks/useEventListener'
 import MobileToggle from './mobileMenu/toggleMenu'
 import Header from './header'
 import Footer from './footer'
-import BgImage from '../images/bg-small-1.png'
+import Image from './image'
 
 import "./styles.css"
 
@@ -14,17 +13,21 @@ const Layout = ({ children }) => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [isScrolling, setScrolling] = useState(false);
 
-  const handleScroll = () => {
-    if (window.pageYOffset > 100) {
-      if (!isScrolling) {
-        setScrolling(true)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 100) {
+        if (!isScrolling) {
+          setScrolling(true)
+        }
+      } else if (isScrolling) {
+        setScrolling(false)
       }
-    } else if (isScrolling) {
-      setScrolling(false)
     }
-  }
-
-  useEventListener(window, 'scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [isScrolling])
   
   const isActive = isScrolling ? "isScrolling" : ""
 
@@ -36,10 +39,6 @@ const Layout = ({ children }) => {
         left="0"
         w="100%"
         h="100vh"
-        backgroundImage={`url(${BgImage})`}
-        backgroundSize="cover"
-        backgroundPosition="center"
-        backgroundRepeat="no-repeat"
         zIndex="-1"
         transition="opacity 2s"
         className={`${isActive}`}
@@ -65,7 +64,9 @@ const Layout = ({ children }) => {
           height: "80vh",
           zIndex: "-1",
         }}
-      />
+      >
+        <Image imgName="bg-page.png"/>
+      </PseudoBox>
       <Box
         p={{base:"15px 15px 20px", lg:"30px 40px 60px", xl: "60px 80px 120px"}}
         m="0 auto"
@@ -75,7 +76,7 @@ const Layout = ({ children }) => {
           display={{sm:"block", lg:"none"}}
           pos="fixed"
           top="18px"
-          right="18px"
+          right="23px"
           zIndex="sticky"
         >
           <MobileToggle 

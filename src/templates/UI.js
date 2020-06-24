@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Box, Heading, Text } from '@chakra-ui/core'
 
-import Image from '../components/image'
-
 export const Close = styled(Link)`
   display: block;
   position: fixed;
@@ -59,32 +57,6 @@ export const ImageWrapper = styled(Box)`
     filter: invert(1);
   }
 `
-
-export const Logo = ({logo, logoDescription}) => (
-  <Box
-    mb="25px"
-  >
-    <Box 
-      w="44px"
-      h="44px"
-      borderRadius="50%"
-      overflow="hidden"
-      display="inline-block"
-      verticalAlign="top"
-    >
-      <Image imgName={logo} width="100%" hight="100%" alt="logo"/>
-    </Box>
-    <Box 
-      as="span"
-      display="inline-block"
-      verticaAlign="top"
-      pl="10px"
-      lineHeight="44px"
-    >
-      {logoDescription}
-    </Box>
-  </Box>
-)
 
 export const Item = ({heading, options}) => (
   <Box

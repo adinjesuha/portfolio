@@ -17,7 +17,7 @@ module.exports = {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: 'rgba(33, 33, 33, 0.5)',
+              backgroundColor: 'var(--opacity-65)',
               zIndex: 1200,
             },
             content: {
@@ -34,7 +34,7 @@ module.exports = {
               WebkitOverflowScrolling: 'touch',
             },
           },
-          contentLabel: 'Modal'
+          contentLabel: 'Modal',
         }
       }
     },
@@ -89,7 +89,7 @@ module.exports = {
         name: 'adinjesuha-portfolio',
         short_name: 'adinjesuha',
         start_url: '/',
-        background_color: '#FF2848',
+        background_color: '#f4f4f4',
         theme_color: '#FF2848',
         display: 'minimal-ui',
         icon: 'src/images/icon.png',

@@ -6,7 +6,7 @@ import ArrowIconDown from '../../images/mobile-filter-down-arrow.svg'
 const TabItem = ({tabId, label, handleActiveTab, activeTab, activeFilter}) => (
   <Box 
     as="li"
-    display={{base: "list-item", md: "inline-block"}}
+    display={{base: "block", md: "inline-block"}}
     m={{base: "0", md:"0 10px"}}
   >
     <PseudoBox

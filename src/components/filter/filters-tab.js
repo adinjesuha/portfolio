@@ -34,7 +34,7 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
       xl: "130px 0 0"
     }}
     p="0"
-    mb={{md: "-80px", lg:"-40px"}}
+    mb={{md: "-80px", lg:"-40px", xl: "-200px"}}
     pb={{md: "50px"}}
     backgroundColor={{
       base: "#f4f4f4",
@@ -68,7 +68,7 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
       pos="absolute"
       top="0"
       left="0"
-      opacity={{baser: activeFilter ? "0" : "1", md: "unset"}}
+      opacity={{base: activeFilter ? "0" : "1", md: "unset"}}
       transform={{base: activeFilter ? "scale(.5)" : "scale(1)", md: "unset"}}
       transition="all .3s"
       zIndex="10"
@@ -78,7 +78,7 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
       maxH="90vh"
       maxW="90vw"
       boxSizing="border-box"
-      overflow="scroll"
+      overflow={activeFilter ? "scroll" : "hidden"}
       transition="padding .3s"
       m="0"
       ml={{md: "-10px"}}

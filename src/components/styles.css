@@ -1,9 +1,27 @@
+:root {
+  --post-bg-color: #232323;
+  --bg-color: #0f0f0f;
+  --text-color: #f4f4f4;
+  --opacity-bg: rgba(244, 244, 244, 0.025);
+  --opacity-35: rgba(244, 244, 244, 0.35);
+  --opacity-65: rgba(15, 15, 15, 0.65);
+  --post-side-margin: 15px;
+  --post-tb-padding: 6vw;
+  --post-side-padding: 8vw;
+}
+
+@media (min-width: 62em) {
+  :root {
+    --post-side-margin: 40px;
+  }
+}
+
 body {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 100vh;
-  color: #f4f4f4;
-  background: #222222;
+  color: var(--text-color);
+  background: var(--bg-color);
   position: relative;
   background-size: cover;
   background-position: center top;
@@ -69,11 +87,11 @@ body {
   /* Start Overflow right */
 
   overflow: auto;
-  padding-bottom: 3rem !important;
-  margin-bottom: -3rem !important;
+  /* padding-bottom: 3rem !important; */
+  /* margin-bottom: -3rem !important; */
   margin-left: -1.5rem;
   margin-right: -1.5rem;
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
 
   /* End Overflow right */
 }
@@ -82,19 +100,30 @@ body {
 }
 .slider-component:before,
 .slider-component:after {
-  content: "";
   position: absolute;
   top: 0px;
   bottom: 0px;
   width: 100%;
   z-index: 1;
-  position: none;
+  background-color: var(--bg-color);
+  border-radius: 3px;
+  /* opacity: 0.65; */
 }
 .slider-component:before {
   transform: translate(-100%);
+  background: linear-gradient(
+    -90deg,
+    rgba(15, 15, 15, 0) 0%,
+    rgba(15, 15, 15, 1) 50%
+  );
 }
 .slider-component:after {
   transform: translate(100%);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 15, 15, 0) 0%,
+    rgba(15, 15, 15, 1) 50%
+  );
 }
 
 .slider-wrapper {
@@ -167,13 +196,18 @@ body {
   pointer-events: all;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 48em) {
   .slider-component {
     margin: initial;
+    overflow: initial;
+  }
+  .slider-component:before,
+  .slider-component:after {
+    content: "";
   }
   .slider-item {
     /* max-width: calc(33.3333% - 1.3333rem); */
-    padding-right: 1.2rem;
+    padding-right: 2.2rem;
     max-width: 100%;
   }
   .slider-item:first-child {
@@ -181,36 +215,25 @@ body {
   }
   .item-content {
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.35);
-    border-radius: 6px;
-  }
-}
-
-@media (min-width: 48em) {
-  .slider-component {
-    overflow: initial;
+    border-radius: 3px;
   }
   .slider-component[data-current-index="0"] > div > :nth-child(n + 2) {
-    /* opacity: 0.75; */
-    transform: scale(0.9);
+    /* opacity: 0.65; */
   }
   .slider-component[data-current-index="1"] > div > :nth-child(n + 3),
   .slider-component[data-current-index="1"] > div > :nth-child(-n + 1) {
-    /* opacity: 0.75; */
-    transform: scale(0.9);
+    /* opacity: 0.65; */
   }
   .slider-component[data-current-index="2"] > div > :nth-child(n + 4),
   .slider-component[data-current-index="2"] > div > :nth-child(-n + 2) {
-    /* opacity: 0.75; */
-    transform: scale(0.9);
+    /* opacity: 0.65; */
   }
   .slider-component[data-current-index="3"] > div > :nth-child(n + 5),
   .slider-component[data-current-index="3"] > div > :nth-child(-n + 3) {
-    /* opacity: 0.75; */
-    transform: scale(0.9);
+    /* opacity: 0.65; */
   }
   .slider-component[data-current-index="4"] > div > :nth-child(-n + 4) {
-    /* opacity: 0.75; */
-    transform: scale(0.9);
+    /* opacity: 0.65; */
   }
   .controls {
     display: block;
@@ -218,3 +241,67 @@ body {
 }
 
 /*:::::::::::::: End Slider Styles ::::::::::::::*/
+
+/*:::::::::::::: Start Masonry Grid Styles ::::::::::::::*/
+
+.masonry-grid {
+  display: flex;
+  flex-flow: column;
+  align-content: space-between;
+  margin-left: calc(var(--post-side-margin) * -1);
+  width: calc(100% + (var(--post-side-margin) * 2));
+}
+
+.masonry-item {
+  width: 100%;
+  /* Optional */
+  position: relative;
+  border-radius: 3px;
+  padding: var(--post-side-margin);
+  box-sizing: border-box;
+}
+
+@media (min-width: 40em) {
+  .masonry-grid {
+    flex-flow: column wrap;
+    /* Your container needs a fixed height, and it 
+    * needs to be taller than your tallest column. */
+    height: 5600px;
+  }
+  /* Force new columns */
+  .masonry-grid::before,
+  .masonry-grid::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
+  .masonry-item {
+    width: 50%;
+  }
+  /* Re-order items into 2 rows */
+  .masonry-item:nth-child(2n + 1) {
+    order: 1;
+  }
+  .masonry-item:nth-child(2n) {
+    order: 2;
+  }
+}
+
+@media (min-width: 80em) {
+  .masonry-item {
+    width: 33%;
+  }
+  /* Re-order items into 3 rows */
+  .masonry-item:nth-child(3n + 1) {
+    order: 1;
+  }
+  .masonry-item:nth-child(3n + 2) {
+    order: 2;
+  }
+  .masonry-item:nth-child(3n) {
+    order: 3;
+  }
+}
+
+/*:::::::::::::: End Masonry Grid Styles ::::::::::::::*/
