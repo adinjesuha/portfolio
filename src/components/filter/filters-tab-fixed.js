@@ -5,12 +5,7 @@ import AvatarImage from '../../images/avatar.png'
 import CloseIcon from '../../images/mobile-filter-close.svg'
 import ArrowIconDown from '../../images/mobile-filter-down-arrow.svg'
 
-const tabs = [
-  {index: 0, tabId: "all", label: "All"},
-  {index: 1, tabId: "web-design", label: "Web Design"},
-  {index: 2, tabId: "open-source", label: "Open Source"},
-  {index: 3, tabId: "about-me", label: "About Me"},
-]
+import { filterOptions } from './filters-options'
 
 const Item = ({tabId, label, handleActiveTab, activeTab, activeFilter}) => (
   <Box 
@@ -128,7 +123,7 @@ const FilterTabFixed = ({handleActiveFilter, activeFilter, handleActiveTab, acti
         width: activeFilter ? "auto" : "0",
       }}
     >
-    {tabs.map(tab => (
+    {filterOptions.map(tab => (
       <Item 
         key={tab.index}
         label={tab.label}
