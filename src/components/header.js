@@ -4,7 +4,7 @@ import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
 import ReactRotatingText from 'react-rotating-text'
 
 import AvatarImage from '../images/avatar.png'
-import Logo from '../images/logo.svg'
+import Logo from '../images/adin-jesuha.png'
 
 const Header = () => {
   const [ date, setDate ] = useState({
@@ -49,9 +49,7 @@ const Header = () => {
           }}
         >hey@adinjesuha.com</PseudoBox>
       </Flex>
-      <Flex
-        justifyContent="space-between"
-      >
+      <Flex justifyContent="space-between"> 
         <Box
           maxW= {["400px", "500px", "550px", "600px"]}
           mt={{base: "40vh", xl:"55px"}}
