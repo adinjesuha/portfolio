@@ -30,10 +30,12 @@ export default ({ children, pageContext }) => (
             noScroll: true,
           }}
         />
-        <LogoClient 
-          logo={pageContext.frontmatter.logo}
-          logoDescription={pageContext.frontmatter.logoDescription}
-        />
+        {pageContext.frontmatter.logo && 
+          <LogoClient 
+            logo={pageContext.frontmatter.logo}
+            logoDescription={pageContext.frontmatter.logoDescription}
+          />
+        }
         <Heading 
           as="h1"
           mb="60px"
@@ -42,6 +44,7 @@ export default ({ children, pageContext }) => (
         >
           {pageContext.frontmatter.title}
         </Heading>
+        {pageContext.frontmatter.logo ? (
         <Flex
           flexDir={{base: "column", md:"row"}}
         >
@@ -76,6 +79,20 @@ export default ({ children, pageContext }) => (
             />
           </Box>
         </Flex>
+        ) : (
+        <Box
+          w="100%"
+          mb={{base: "20px", lg: "60px"}}
+        >
+          <Text
+            fontSize={{lg: "20px"}}
+            mt="15px"
+            color="#979797"
+          >
+            {pageContext.frontmatter.description}
+          </Text>
+        </Box>
+        )}
         {pageContext.frontmatter.carouselImages ? (
           <Box mb="40px">
             <Slider slideData={pageContext.frontmatter.carouselImages}/>

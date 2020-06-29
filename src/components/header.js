@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
+import { PopupWidget } from 'react-calendly'
 import ReactRotatingText from 'react-rotating-text'
 
 import AvatarImage from '../images/avatar.png'
@@ -31,9 +32,9 @@ const Header = () => {
           />
           <img src={Logo} alt='Adin Jesuha' width="125px" />
         </Box>
-        <PseudoBox
+        {/*<PseudoBox
           as="a"
-          href="#"
+          href="mailto:adinjesuha@gmail.com"
           target="_blank"
           display={{base:"none", lg:"inline-block"}}
           backgroundColor="#f4f4f4"
@@ -47,7 +48,13 @@ const Header = () => {
             background: "#222222",
             color: "#f4f4f4"
           }}
-        >hey@adinjesuha.com</PseudoBox>
+        >adinjesuha@gmail.com</PseudoBox>*/}
+        <PopupWidget
+          color="#00a2ff"
+          text="Request a Demo"
+          textColor="#ffffff"
+          url="https://calendly.com/adinjesuha"
+        />
       </Flex>
       <Flex justifyContent="space-between"> 
         <Box
@@ -128,7 +135,7 @@ const Header = () => {
       >
         <PseudoBox
           as="a"
-          href="#"
+          href="mailto:adinjesuha@gmail.com"
           target="_blank"
           display="inline-block"
           backgroundColor="#f4f4f4"
@@ -143,10 +150,10 @@ const Header = () => {
             background: "#222222",
             color: "#f4f4f4"
           }}
-        >hey@adinjesuha.com</PseudoBox>
+        >adinjesuha@gmail.com</PseudoBox>
         <Box
           as="a"
-          href="#"
+          href="tel:504-9579-8520"
           display="inline-block"
           textDecoration="none"
           color="#f4f4f4"

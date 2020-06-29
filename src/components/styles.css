@@ -30,6 +30,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hero-image {
+  height: 100vh;
+}
+
 /*:::::::::::::: Start Scrolling Styles ::::::::::::::*/
 
 .isScrolling {
@@ -256,9 +260,11 @@ body {
   width: 100%;
   /* Optional */
   position: relative;
-  border-radius: 3px;
   padding: var(--post-side-margin);
   box-sizing: border-box;
+}
+.masonry-item:first-child a + div {
+  margin-top: -60px;
 }
 
 @media (min-width: 40em) {

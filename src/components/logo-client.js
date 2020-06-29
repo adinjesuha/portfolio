@@ -3,9 +3,7 @@ import { Box } from '@chakra-ui/core'
 import Image from './image'
 
 export default ({logo, logoDescription}) => (
-  <Box
-    mb="25px"
-  >
+  <Box mb="15px">
     <Box 
       w="44px"
       h="44px"

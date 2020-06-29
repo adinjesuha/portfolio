@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
-import { PseudoBox, Box, Flex } from '@chakra-ui/core'
+import { Box, Flex } from '@chakra-ui/core'
 
 import MobileToggle from './mobileMenu/toggleMenu'
 import Header from './header'
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
 
   return(
     <React.Fragment>
-      <PseudoBox
+      <Box
         pos= "fixed"
         top="0"
         left="0"
@@ -42,31 +42,9 @@ const Layout = ({ children }) => {
         zIndex="-1"
         transition="opacity 2s"
         className={`${isActive}`}
-        _before={{
-          content: '""',
-          backgroundImage: "radial-gradient(rgba(0,0,0,.0), rgba(0,0,0,0))",
-          display: "block",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100vh",
-          zIndex: "-1",
-        }}
-        _after={{
-          content: '""',
-          backgroundImage: "linear-gradient(180deg,rgba(0,0,0,.0) 0%, rgba(0,0,0,0) 100%)",
-          display: "block",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "80vh",
-          zIndex: "-1",
-        }}
       >
-        <Image imgName="bg-page.jpg"/>
-      </PseudoBox>
+        <Image imgName="bg-page.jpg" className="hero-image"/>
+      </Box>
       <Box
         p={{base:"15px 15px 20px", lg:"30px 40px 60px", xl: "60px 80px 120px"}}
         m="0 auto"

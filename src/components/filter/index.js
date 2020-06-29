@@ -20,12 +20,14 @@ export default () => {
           node{
             frontmatter{
               title
+              description
               category
               path
               img
               role
               logo
               logoDescription
+              linkCard
             }
           }
         }
@@ -82,7 +84,7 @@ export default () => {
       <Box 
         ref={refElem}
         className="masonry-grid"
-        p={{base:"50px 0", lg:"150px 0"}}
+        p={{base:"30px 0", xl: "150px 0"}}
       >
       {filteredData.map((data, index) => (
         <Item

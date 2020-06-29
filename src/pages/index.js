@@ -7,7 +7,7 @@ import FiltersContainer from "../components/filter/"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Developer" />
     <FiltersContainer />
   </Layout>
 )
