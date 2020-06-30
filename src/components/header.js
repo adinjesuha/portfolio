@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
-import { PopupWidget } from 'react-calendly'
 import ReactRotatingText from 'react-rotating-text'
 
+import CalendlyLinkCta from './calendly-cta'
 import AvatarImage from '../images/avatar.png'
 import Logo from '../images/adin-jesuha.png'
+import PinIcon from '../images/location-pin.svg'
 
 const Header = () => {
   const [ date, setDate ] = useState({
@@ -32,29 +33,7 @@ const Header = () => {
           />
           <img src={Logo} alt='Adin Jesuha' width="125px" />
         </Box>
-        {/*<PseudoBox
-          as="a"
-          href="mailto:adinjesuha@gmail.com"
-          target="_blank"
-          display={{base:"none", lg:"inline-block"}}
-          backgroundColor="#f4f4f4"
-          borderRadius="25px"
-          px="30px"
-          textDecoration="none"
-          color="#222222"
-          lineHeight="50px"
-          transition= "background .3s,color .3s"
-          _hover={{
-            background: "#222222",
-            color: "#f4f4f4"
-          }}
-        >adinjesuha@gmail.com</PseudoBox>*/}
-        <PopupWidget
-          color="#00a2ff"
-          text="Request a Demo"
-          textColor="#ffffff"
-          url="https://calendly.com/adinjesuha"
-        />
+        <CalendlyLinkCta />
       </Flex>
       <Flex justifyContent="space-between"> 
         <Box
@@ -101,12 +80,22 @@ const Header = () => {
           <Box
             as="span"
           >
+            <Box 
+              as="span"
+              display="inline-block"
+              w="20px"
+              h="16px"
+              mr="5px"
+              backgroundImage={`url(${PinIcon})`}
+              backgroundRepeat="no-repeat"
+              backgroundPosition="center center"
+            />
             Tegucigalpa, Honduras
           </Box>
           <Box
             as="span"
             pl=".35em"
-          >{date.hours}:{date.minutes} CST</Box>
+          > {date.hours}:{date.minutes} CST</Box>
           <PseudoBox
             fontSize="md"
             _before={{
@@ -124,7 +113,7 @@ const Header = () => {
               opacity=".75"
               lineHeight="2.25em"
             >
-            Available for Freelance (In office till 6)
+            Available for Freelance (In office till 18:00)
             </Box>
           </PseudoBox>
         </Box>

@@ -40,7 +40,7 @@ const Footer = () => {
       >
         <PseudoBox
           as="a"
-          href="#"
+          href="mailto:adinjesuha@gmail.com"
           target="_blank"
           display={{base:"block", sm:"inline-block"}}
           mr={{sm: "15px"}}
@@ -56,15 +56,15 @@ const Footer = () => {
             background: "#222222",
             color: "#f4f4f4"
           }}
-        >hey@adinjesuha.com</PseudoBox>
+        >adinjesuha@gmail.com</PseudoBox>
         <Box
           as="a"
-          href="#"
+          href="tel:504-9579-8520"
           display={{base:"block", sm:"inline-block"}}
           textDecoration="none"
           color="#f4f4f4"
           lineHeight="50px"
-        >(504) 9579-8520</Box>
+        >Text (504) 9579-8520</Box>
       </Box>
     </Box>
   )
