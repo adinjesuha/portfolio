@@ -28,6 +28,7 @@ export default () => {
               logo
               logoDescription
               linkCard
+              article
             }
           }
         }

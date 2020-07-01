@@ -88,10 +88,12 @@ const ModalCard = ({data}) => (
         outline: "0"
       }}
     >
+    {data.node.frontmatter.logo && 
       <LogoClient 
         logo={data.node.frontmatter.logo}
         logoDescription={data.node.frontmatter.logoDescription}
       />
+    }
       <Box
         position="relative"
         overflow="hidden"
@@ -108,9 +110,15 @@ const ModalCard = ({data}) => (
         >{data.node.frontmatter.title}</Heading>
       </Box>
     </Link>
-    <Text fontSize="md" opacity="0.5">
-      {data.node.frontmatter.role.join(', ')}
-    </Text>
+    {data.node.frontmatter.article ? (
+      <Text fontSize="md" opacity="0.5">
+        {data.node.frontmatter.description}
+      </Text>
+    ) : (
+      <Text fontSize="md" opacity="0.5">
+        {data.node.frontmatter.role.join(', ')}
+      </Text>
+    )}  
   </React.Fragment>
 )
 

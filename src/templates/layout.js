@@ -30,12 +30,56 @@ export default ({ children, pageContext }) => (
             noScroll: true,
           }}
         />
-        {pageContext.frontmatter.logo && 
+        {!pageContext.frontmatter.article ? (
+        <React.Fragment>
           <LogoClient 
             logo={pageContext.frontmatter.logo}
             logoDescription={pageContext.frontmatter.logoDescription}
           />
-        }
+          <Heading 
+            as="h1"
+            mb="60px"
+            fontWeight="400"
+            fontSize={{base: "3xl", lg: '4xl'}}
+          >
+            {pageContext.frontmatter.title}
+          </Heading>
+          <Flex flexDir={{base: "column", md:"row"}}>
+            <Box
+              order={{base: "2", md:"initial"}}
+              w={{base: "100%", md:"calc(100% - 280px)"}}
+            >
+              <Heading
+                as="h2"
+                fontSize={{base: "xl", md: "2xl"}}
+                fontWeight="400"
+              >
+                About the client
+              </Heading>
+              <Text
+                fontSize={{lg: "20px"}}
+                mt="15px"
+                color="#979797"
+              >
+                {pageContext.frontmatter.description}</Text>
+            </Box>
+            <Box
+              w={{base: "100%", md:"280px"}}
+              pl={{md:"30px"}}
+              textAlign={{base: "left", md: "right"}}
+            >
+              <Item 
+                heading="Role"
+                options={pageContext.frontmatter.role}
+              />
+              <Item 
+                heading="Deliverables"
+                options={pageContext.frontmatter.deliverables}
+              />
+            </Box>
+          </Flex>
+        </React.Fragment>
+        ) : (
         <Heading 
           as="h1"
           mb="60px"
@@ -44,54 +88,6 @@ export default ({ children, pageContext }) => (
         >
           {pageContext.frontmatter.title}
         </Heading>
-        {pageContext.frontmatter.logo ? (
-        <Flex
-          flexDir={{base: "column", md:"row"}}
-        >
-          <Box
-            order={{base: "2", md:"initial"}}
-            w={{base: "100%", md:"calc(100% - 280px)"}}
-          >
-            <Heading
-              as="h2"
-              fontSize={{base: "xl", md: "2xl"}}
-              fontWeight="400"
-            >About the client</Heading>
-            <Text
-              fontSize={{lg: "20px"}}
-              mt="15px"
-              color="#979797"
-            >
-              {pageContext.frontmatter.description}</Text>
-          </Box>
-          <Box
-            w={{base: "100%", md:"280px"}}
-            pl={{md:"30px"}}
-            textAlign={{base: "left", md: "right"}}
-          >
-            <Item 
-              heading="Role"
-              options={pageContext.frontmatter.role}
-            />
-            <Item 
-              heading="Deliverables"
-              options={pageContext.frontmatter.deliverables}
-            />
-          </Box>
-        </Flex>
-        ) : (
-        <Box
-          w="100%"
-          mb={{base: "20px", lg: "60px"}}
-        >
-          <Text
-            fontSize={{lg: "20px"}}
-            mt="15px"
-            color="#979797"
-          >
-            {pageContext.frontmatter.description}
-          </Text>
-        </Box>
         )}
         {pageContext.frontmatter.carouselImages ? (
           <Box mb="40px">
@@ -102,6 +98,7 @@ export default ({ children, pageContext }) => (
             w="calc(100% + 16vw)"
             maxW="none"
             h="auto"
+            overflow="hidden"
             m="0 0 50px calc(-1 * 8vw)"
             mt={{base:"50px", md: "0"}}
             pos="relative"
