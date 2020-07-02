@@ -257,135 +257,31 @@ body.ReactModal__Body--open {
 /*:::::::::::::: Start Masonry Grid Styles ::::::::::::::*/
 
 .masonry-grid {
-  display: flex;
-  flex-flow: column;
-  align-content: space-between;
+  columns: 1;
   margin-left: calc(var(--post-side-margin) * -1);
   width: calc(100% + (var(--post-side-margin) * 2));
 }
 
 .masonry-item {
+  display: inline-block;
   width: 100%;
+  height: 100%;
   /* Optional */
   position: relative;
   padding: var(--post-side-margin);
   box-sizing: border-box;
 }
 
-@media (min-width: 40em) {
+@media all and (min-width: 520px) {
   .masonry-grid {
-    flex-flow: column wrap;
-    /* Your container needs a fixed height, and it 
-    * needs to be taller than your tallest column. */
-
-    min-height: 1px;
-    /* height: 2000px; */
-  }
-  /* Force new columns */
-  .masonry-grid::before,
-  .masonry-grid::after {
-    content: "";
-    flex-basis: 100%;
-    width: 0;
-    order: 2;
-  }
-  .masonry-item {
-    width: 50%;
-  }
-  /* Re-order items into 2 rows */
-  .masonry-item:nth-child(2n + 1) {
-    order: 1;
-  }
-  .masonry-item:nth-child(2n) {
-    order: 2;
+    columns: 2;
   }
 }
 
-@media (min-width: 80em) {
-  .masonry-item {
-    width: 33%;
-  }
-  /* Re-order items into 3 rows */
-  .masonry-item:nth-child(3n + 1) {
-    order: 1;
-  }
-  .masonry-item:nth-child(3n + 2) {
-    order: 2;
-  }
-  .masonry-item:nth-child(3n) {
-    order: 3;
-  }
-}
-
-@media (min-width: 642px) {
+/* @media all and (min-width: 1024px) {
   .masonry-grid {
-    height: 3000px;
+    columns: 3;
   }
-}
-@media (min-width: 690px) {
-  .masonry-grid {
-    height: 3100px;
-  }
-}
-@media (min-width: 770px) {
-  .masonry-grid {
-    height: 3150px;
-  }
-}
-@media (min-width: 790px) {
-  .masonry-grid {
-    height: 3300px;
-  }
-}
-@media (min-width: 875px) {
-  .masonry-grid {
-    height: 3400px;
-  }
-}
-@media (min-width: 945px) {
-  .masonry-grid {
-    height: 3500px;
-  }
-}
-@media (min-width: 990px) {
-  .masonry-grid {
-    height: 3600px;
-  }
-}
-@media (min-width: 1016px) {
-  .masonry-grid {
-    height: 3700px;
-  }
-}
-@media (min-width: 1086px) {
-  .masonry-grid {
-    height: 3800px;
-  }
-}
-@media (min-width: 1127px) {
-  .masonry-grid {
-    height: 3900px;
-  }
-}
-@media (min-width: 1167px) {
-  .masonry-grid {
-    height: 4000px;
-  }
-}
-@media (min-width: 1217px) {
-  .masonry-grid {
-    height: 4100px;
-  }
-}
-@media (min-width: 1255px) {
-  .masonry-grid {
-    height: 4200px;
-  }
-}
-@media (min-width: 1280px) {
-  .masonry-grid {
-    height: 2300px;
-  }
-}
+} */
 
 /*:::::::::::::: End Masonry Grid Styles ::::::::::::::*/
