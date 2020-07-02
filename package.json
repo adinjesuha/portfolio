@@ -29,7 +29,8 @@
     "react-calendly": "^1.0.1",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-rotating-text": "^1.4.1"
+    "react-rotating-text": "^1.4.1",
+    "react-use-dimensions": "^1.2.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

@@ -108,9 +108,9 @@ const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab
         width: activeFilter ? "auto" : "0",
       }}
     >
-    {filterOptions.map(tab => (
+    {filterOptions.map((tab, index) => (
       <TabItem 
-        key={tab.index}
+        key={index}
         label={tab.label}
         tabId={tab.tabId}
         handleActiveTab={handleActiveTab}

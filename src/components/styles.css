@@ -271,16 +271,15 @@ body.ReactModal__Body--open {
   padding: var(--post-side-margin);
   box-sizing: border-box;
 }
-.masonry-item:first-child a + div {
-  margin-top: -60px;
-}
 
 @media (min-width: 40em) {
   .masonry-grid {
     flex-flow: column wrap;
     /* Your container needs a fixed height, and it 
     * needs to be taller than your tallest column. */
-    height: 5600px;
+
+    min-height: 1px;
+    /* height: 2000px; */
   }
   /* Force new columns */
   .masonry-grid::before,
@@ -315,6 +314,77 @@ body.ReactModal__Body--open {
   }
   .masonry-item:nth-child(3n) {
     order: 3;
+  }
+}
+
+@media (min-width: 642px) {
+  .masonry-grid {
+    height: 3000px;
+  }
+}
+@media (min-width: 690px) {
+  .masonry-grid {
+    height: 3100px;
+  }
+}
+@media (min-width: 770px) {
+  .masonry-grid {
+    height: 3150px;
+  }
+}
+@media (min-width: 790px) {
+  .masonry-grid {
+    height: 3300px;
+  }
+}
+@media (min-width: 875px) {
+  .masonry-grid {
+    height: 3400px;
+  }
+}
+@media (min-width: 945px) {
+  .masonry-grid {
+    height: 3500px;
+  }
+}
+@media (min-width: 990px) {
+  .masonry-grid {
+    height: 3600px;
+  }
+}
+@media (min-width: 1016px) {
+  .masonry-grid {
+    height: 3700px;
+  }
+}
+@media (min-width: 1086px) {
+  .masonry-grid {
+    height: 3800px;
+  }
+}
+@media (min-width: 1127px) {
+  .masonry-grid {
+    height: 3900px;
+  }
+}
+@media (min-width: 1167px) {
+  .masonry-grid {
+    height: 4000px;
+  }
+}
+@media (min-width: 1217px) {
+  .masonry-grid {
+    height: 4100px;
+  }
+}
+@media (min-width: 1255px) {
+  .masonry-grid {
+    height: 4200px;
+  }
+}
+@media (min-width: 1280px) {
+  .masonry-grid {
+    height: 2300px;
   }
 }
 

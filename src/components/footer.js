@@ -3,7 +3,7 @@ import { Box, PseudoBox, Text } from '@chakra-ui/core';
 
 const Footer = () => {
   return (
-    <Box>
+    <Box mb="20px">
       <PseudoBox
         fontSize={{base: "2xl", lg: "4xl"}}
         mt="20px"

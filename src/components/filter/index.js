@@ -1,48 +1,31 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useStaticQuery, graphql } from "gatsby"
-import { Box } from '@chakra-ui/core'
+import React, { useState, useEffect, useRef } from 'react'
 
 import FilterTab from './filters-tab'
 import FilterTabFixed from './filters-tab-fixed'
-import Item from '../item'
+import FilterContent from './filters-content'
 import MailTo from '../mail-to'
 
 export default () => {
 
   const [ activeFilter, setActiveFilter ] = useState(false)
   const [ activeTab, setActiveTab ] = useState("all");
-  const [ elementAppear, setElementAppear ] = useState(false)
+  const [ elementAppear, setElementAppear] = useState(false);
 
-  const data = useStaticQuery(graphql`
-    query allMDX {
-      allMdx(sort: {fields: frontmatter___order}){
-        edges{
-          node{
-            frontmatter{
-              title
-              description
-              category
-              path
-              img
-              role
-              logo
-              logoDescription
-              linkCard
-              article
-            }
-          }
-        }
-      }
-    }
-  `)
+  const handleActiveTab = e => {
+    setActiveTab(e.target.id)
+  }
+  const handleActiveFilter = () => {
+    setActiveFilter(!activeFilter)
+  }
 
-  let refElem = useRef(0)
+  let masonryRef = useRef(null)
 
   useEffect(() => {
+
     function handleAppear() {
-      if(refElem.current.getBoundingClientRect().top < -300) {
+      if (masonryRef.current.getBoundingClientRect().top < -160){
         setElementAppear(true)
-      }else {
+      } else {
         setElementAppear(false)
       }
     }
@@ -52,19 +35,6 @@ export default () => {
     }
   }, [])
 
-  const handleActiveTab = e => {
-    setActiveTab(e.target.id)
-  }
-  const handleActiveFilter = () => {
-    setActiveFilter(!activeFilter)
-  }
-
-  let filteredData; 
-  if(activeTab === "all"){
-    filteredData = data.allMdx.edges
-  }else{
-    filteredData = data.allMdx.edges.filter( mdx => mdx.node.frontmatter.category === activeTab)
-  }
 
   return (
     <React.Fragment>
@@ -82,18 +52,7 @@ export default () => {
         translateEl={elementAppear}
       />
       <MailTo translateEl={elementAppear}/>
-      <Box 
-        ref={refElem}
-        className="masonry-grid"
-        p={{base:"30px 0", xl: "150px 0"}}
-      >
-      {filteredData.map((data, index) => (
-        <Item
-          data={data}
-          key={index}
-        />
-      ))}
-      </Box>
+      <FilterContent activeTab={activeTab} refProp={masonryRef}/>
     </React.Fragment>
   )
 }

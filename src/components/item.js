@@ -125,7 +125,7 @@ const ModalCard = ({data}) => (
 export default ({data}) => {
   const { linkCard } = data.node.frontmatter
   return (
-    <Box className="masonry-item" >
+    <Box className="masonry-item">
       {linkCard ? (
         <LinkCard data={data}/>
       ) : (
