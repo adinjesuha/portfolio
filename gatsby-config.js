@@ -90,7 +90,7 @@ module.exports = {
         short_name: 'adinjesuha',
         start_url: '/',
         background_color: '#f4f4f4',
-        theme_color: '#FF2848',
+        theme_color: '#232323',
         display: 'minimal-ui',
         icon: 'src/images/icon.png',
       },
