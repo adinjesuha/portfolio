@@ -272,16 +272,10 @@ body.ReactModal__Body--open {
   box-sizing: border-box;
 }
 
-@media all and (min-width: 520px) {
+@media all and (min-width: 40em) {
   .masonry-grid {
     columns: 2;
   }
 }
-
-/* @media all and (min-width: 1024px) {
-  .masonry-grid {
-    columns: 3;
-  }
-} */
 
 /*:::::::::::::: End Masonry Grid Styles ::::::::::::::*/
