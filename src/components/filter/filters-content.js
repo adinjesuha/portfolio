@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { Box } from '@chakra-ui/core'
+import Snuggle from 'react-snuggle'
 
 import Item from '../item'
 
@@ -40,15 +41,19 @@ export default({activeTab, refProp}) => {
   return (
     <Box 
       ref={refProp}
-      className="masonry-grid"
-      p={{base:"30px 0 10px", xl: "150px 0 0"}}
+      mt={{base: "40px", md: "50px", xl:"190px"}}
     >
-    {filteredData.map((data, index) => (
-      <Item
-        key={index}
-        data={data}
-      />
-    ))}
+      <Snuggle
+        columnWidth="300"
+        rowGap="60"
+      >
+      {filteredData.map((data, index) => (
+        <Item
+          key={index}
+          data={data}
+        />
+      ))}
+      </Snuggle>
     </Box>
   )
 }

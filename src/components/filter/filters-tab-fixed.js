@@ -69,7 +69,7 @@ const FilterTabFixed = ({handleActiveFilter, activeFilter, handleActiveTab, acti
           ? "translate3d(calc((100% + 30px)*-1),0,0)" 
           : "translate3d(0,0,0)"
       }
-      transition="transform .3s"
+      transition="transform .6s"
     >
       <Avatar 
         name="Adin Jesuha"

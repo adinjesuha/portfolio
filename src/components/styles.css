@@ -253,29 +253,3 @@ body.ReactModal__Body--open {
 }
 
 /*:::::::::::::: End Slider Styles ::::::::::::::*/
-
-/*:::::::::::::: Start Masonry Grid Styles ::::::::::::::*/
-
-.masonry-grid {
-  columns: 1;
-  margin-left: calc(var(--post-side-margin) * -1);
-  width: calc(100% + (var(--post-side-margin) * 2));
-}
-
-.masonry-item {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  /* Optional */
-  position: relative;
-  padding: var(--post-side-margin);
-  box-sizing: border-box;
-}
-
-@media all and (min-width: 40em) {
-  .masonry-grid {
-    columns: 2;
-  }
-}
-
-/*:::::::::::::: End Masonry Grid Styles ::::::::::::::*/

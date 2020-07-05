@@ -12,7 +12,7 @@ const MailTo = styled.a`
   border-radius: 25px;
   padding: 0 30px;
   line-height: 50px;
-  transition: background .3s,color .3s,transform .3s;
+  transition: background .3s,color .3s,transform .6s;
   border: 2px solid var(--opacity-35);
   z-index: 2;
   box-shadow: 0 5px 10px rgba(0,0,0,.2);

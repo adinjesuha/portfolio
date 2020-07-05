@@ -12202,6 +12202,11 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
+react-snuggle@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-snuggle/-/react-snuggle-1.2.3.tgz#2724acdceb6b3ea0a793b6e150327d7dc98b4521"
+  integrity sha512-+z/pveKihWAy7OSSzRQxkiHATT/1GSNJ+QOReUm7uoFd5jD3D1b7p/0bg40LBYC4slX8c/zij4+LX6D0KmSi1w==
+
 react-spring@^8.0.27:
   version "8.0.27"
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"

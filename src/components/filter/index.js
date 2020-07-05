@@ -23,7 +23,7 @@ export default () => {
   useEffect(() => {
 
     function handleAppear() {
-      if (masonryRef.current.getBoundingClientRect().top < -160){
+      if (masonryRef.current.getBoundingClientRect().top < -100){
         setElementAppear(true)
       } else {
         setElementAppear(false)
