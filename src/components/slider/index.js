@@ -16,8 +16,14 @@ const Controls = ({
     data-show-previous={showPrevious}
     data-show-next={showNext}
   >
-    <button onClick={handlePreviousClick} />
-    <button onClick={handleNextClick} />
+    <button 
+      aria-label="Previous button"
+      onClick={handlePreviousClick} 
+    />
+    <button 
+      aria-label="Next button"
+      onClick={handleNextClick} 
+    />
   </span>
 )
 

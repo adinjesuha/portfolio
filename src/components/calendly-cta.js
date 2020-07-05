@@ -27,7 +27,7 @@ const CalendlyLink = styled.div`
 
 export default () => (
   <CalendlyLink>
-    <PopupText 
+    <PopupText
       text="Book an Appointment"
       url="https://calendly.com/adinjesuha"
     />

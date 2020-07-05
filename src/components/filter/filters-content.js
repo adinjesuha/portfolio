@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { Box } from '@chakra-ui/core'
 import Snuggle from 'react-snuggle'
+import ScrollReveal from 'scrollreveal'
 
 import Item from '../item'
 
@@ -37,6 +38,13 @@ export default({activeTab, refProp}) => {
     filteredData = data.allMdx.edges.filter( mdx => mdx.node.frontmatter.category === activeTab)
   }
 
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", { 
+      reset: false,
+      origin : 'bottom',
+    }, 600)
+  }, []);
+
 
   return (
     <Box 
@@ -49,6 +57,7 @@ export default({activeTab, refProp}) => {
       >
       {filteredData.map((data, index) => (
         <Item
+          classNames="reveal"
           key={index}
           data={data}
         />

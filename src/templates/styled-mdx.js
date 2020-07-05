@@ -28,7 +28,7 @@ const Link = props => (
       textDecoration: "underline",
     }}
     {...props}
-  />
+  >{props.children}</a>
 )
 
 const Strong = props => (

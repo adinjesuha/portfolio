@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import { Box, Avatar, Flex, Heading, Text, PseudoBox } from '@chakra-ui/core'
 import ReactRotatingText from 'react-rotating-text'
@@ -7,12 +7,9 @@ import CalendlyLinkCta from './calendly-cta'
 import AvatarImage from '../images/avatar.png'
 import Logo from '../images/adin-jesuha.png'
 import PinIcon from '../images/location-pin.svg'
+import { getCurrentDate } from '../utils/currentDate'
 
 const Header = () => {
-  const [ date, setDate ] = useState({
-    hours: new Date().getHours().toLocaleString(),
-    minutes: new Date().getMinutes().toLocaleString(),
-  })
   return (
     <React.Fragment>
       <Flex justifyContent="space-between">
@@ -94,8 +91,9 @@ const Header = () => {
           </Box>
           <Box
             as="span"
+            display="block"
             pl=".35em"
-          > {date.hours}:{date.minutes} CST</Box>
+          > {getCurrentDate()} CST</Box>
           <PseudoBox
             fontSize="md"
             _before={{

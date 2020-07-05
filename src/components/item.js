@@ -122,12 +122,13 @@ const ModalCard = ({data}) => (
   </React.Fragment>
 )
 
-export default ({data}) => {
+export default ({data, classNames}) => {
   const { linkCard } = data.node.frontmatter
   return (
     <Box
       w="100%"
       h="100%"
+      className={classNames}
     >
       {linkCard ? (
         <LinkCard data={data}/>

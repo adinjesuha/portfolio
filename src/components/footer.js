@@ -33,7 +33,7 @@ const Footer = () => {
         lineHeight="1.5em"
         maxW="600px"
       >
-        If you’re looking for a freelance designer to help bring an idea to life and you’re on a tight timeline—let’s jam.
+        If you have a project in mind and need a freelancer—let’s jam.
       </Text>
       <Box
         textAlign="center"

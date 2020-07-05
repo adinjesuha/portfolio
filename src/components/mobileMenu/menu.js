@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Flex, PseudoBox } from '@chakra-ui/core'
 import { PopupText } from 'react-calendly'
 
+import { getCurrentDate } from '../../utils/currentDate'
 import PinIcon from '../../images/location-pin.svg'
 
 const MenuItem = ({children, href, ...otherProps}) => (
@@ -28,10 +29,6 @@ const MenuItem = ({children, href, ...otherProps}) => (
 )
 
 export default ({menuOpened}) => {
-  const [ date, setDate ] = useState({
-    hours: new Date().getHours().toLocaleString(),
-    minutes: new Date().getMinutes().toLocaleString(),
-  })
   return (
     <Flex
       flexDir="column"
@@ -65,12 +62,10 @@ export default ({menuOpened}) => {
           opacity="0"
           className={menuOpened ? "showNav--main" : ""}
         >
-          <MenuItem>
-            <PopupText 
-              text="Book an Appointment"
-              url="https://calendly.com/adinjesuha"
-            />
-          </MenuItem>
+          <PopupText 
+            text="Book an Appointment"
+            url="https://calendly.com/adinjesuha"
+          />
           <MenuItem 
             href="mailto:adinjesuha@gmail.com"
             target="_blank"
@@ -116,7 +111,7 @@ export default ({menuOpened}) => {
           </Box>
           <Box
             fontSize="22px"
-          > {date.hours}:{date.minutes} CST</Box>
+          > {getCurrentDate()} CST</Box>
           <PseudoBox
             _before={{
               content: '""',

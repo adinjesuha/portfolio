@@ -64,6 +64,20 @@ body.ReactModal__Body--open {
   animation: showNavigation 0.9s ease forwards;
   visibility: visible;
 }
+.showNav--main > a {
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.22;
+  color: var(--text-color);
+  display: block;
+  padding: 10px 0;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.showNav--main > a:hover {
+  opacity: 1;
+}
+
 .showNav--alter {
   animation: showNavigation 0.9s 0.2s ease forwards;
   visibility: visible;
@@ -253,3 +267,7 @@ body.ReactModal__Body--open {
 }
 
 /*:::::::::::::: End Slider Styles ::::::::::::::*/
+
+/*:::::::::::::: Start Scroll Reveal styles ::::::::::::::*/
+
+/*:::::::::::::: End Scroll Reveal styles ::::::::::::::*/

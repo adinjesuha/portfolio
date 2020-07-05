@@ -26,14 +26,12 @@ const MailTo = styled.a`
   }
 `
 
-export default ({translateEl}) => {
-  return (
-    <MailTo
-      href="mailto:adinjesuha@gmail.com"
-      target="_blank"
-      translateEl={translateEl}
-    >
-      adinjesuha@gmail.com
-    </MailTo>
-  )
-}
+export default ({translateEl}) => (
+  <MailTo
+    href="mailto:adinjesuha@gmail.com"
+    target="_blank"
+    translateEl={translateEl}
+  >
+    adinjesuha@gmail.com
+  </MailTo>
+)
