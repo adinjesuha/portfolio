@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [isScrolling])
+  }, [])
   
   const isActive = isScrolling ? "isScrolling" : ""
 
@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
         <Box
           display={{sm:"block", lg:"none"}}
           pos="fixed"
-          top="18px"
+          top="23px"
           right="23px"
           zIndex="sticky"
         >
