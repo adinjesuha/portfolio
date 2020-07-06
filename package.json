@@ -17,7 +17,7 @@
     "gatsby-plugin-chakra-ui": "^0.1.4",
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-mdx": "^1.2.14",
-    "gatsby-plugin-modal-routing": "^1.1.0",
+    "gatsby-plugin-modal-routing": "^1.2.0",
     "gatsby-plugin-offline": "^3.0.27",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sharp": "^2.3.5",
@@ -30,8 +30,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-rotating-text": "^1.4.1",
-    "react-snuggle": "^1.2.3",
-    "react-use-dimensions": "^1.2.1"
+    "react-snuggle": "^1.2.3"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
