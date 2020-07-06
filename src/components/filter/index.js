@@ -18,12 +18,12 @@ export default () => {
     setActiveFilter(!activeFilter)
   }
 
-  let masonryRef = useRef(null)
+  let tabsRef = useRef(null)
 
   useEffect(() => {
 
     function handleAppear() {
-      if (masonryRef.current.getBoundingClientRect().top < -100){
+      if ( tabsRef.current.getBoundingClientRect().top < -100){
         setElementAppear(true)
       } else {
         setElementAppear(false)
@@ -43,6 +43,7 @@ export default () => {
         handleActiveFilter={handleActiveFilter}
         activeTab={activeTab}
         activeFilter={activeFilter}
+        refProp={tabsRef}
       />
       <FilterTabFixed
         handleActiveTab={handleActiveTab}
@@ -52,7 +53,7 @@ export default () => {
         translateEl={elementAppear}
       />
       <MailTo translateEl={elementAppear}/>
-      <FilterContent activeTab={activeTab} refProp={masonryRef}/>
+      <FilterContent activeTab={activeTab}/>
     </React.Fragment>
   )
 }

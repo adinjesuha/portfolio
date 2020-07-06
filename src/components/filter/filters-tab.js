@@ -19,8 +19,9 @@ const CustomPseudoBox = styled(PseudoBox)`
   }
 `
 
-const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab}) => (
+const FilterTab = ({handleActiveFilter, activeFilter, handleActiveTab, activeTab, refProp}) => (
   <Box
+    ref={refProp}
     onClick={handleActiveFilter}
     top="20px"
     m={{
